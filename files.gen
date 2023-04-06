@@ -6,7 +6,7 @@ oauthapplications.go
 oauthtokens.go
 organizations.go
 users.go
-sdk.go
+planetscale.go
 go.mod
 go.sum
 pkg/types/date.go
