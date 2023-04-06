@@ -11,7 +11,7 @@
 ## SDK Installation
 
 ```bash
-go get github.com/speakeasy-sdks/planetscale
+go get github.com/speakeasy-sdks/planetscale-go
 ```
 <!-- End SDK Installation -->
 
@@ -29,8 +29,8 @@ import (
 )
 
 func main() {
-    s := sdk.New(
-        sdk.WithSecurity(shared.Security{
+    s := planetscale.New(
+        planetscale.WithSecurity(shared.Security{
             APIKeyHeader: "YOUR_API_KEY_HERE",
         }),
     )
