@@ -1,4 +1,12 @@
-# github.com/speakeasy-sdks/planetscale
+<div align="center">
+    <img src="" width="100">
+    <h1>Go SDK</h1>
+   <p>The world’s most advanced serverless MySQL platform</p>
+   <a href="https://user-images.githubusercontent.com/6267663/230379169-dae2f415-423f-4791-8310-8b3304fd449d.svg"><img src="https://img.shields.io/static/v1?label=Docs&message=API Ref&color=000&style=for-the-badge" /></a>
+   <a href="https://github.com/speakeasy-sdks/planetscale-go/actions"><img src="https://img.shields.io/github/actions/workflow/status/speakeasy-sdks/planetscale-go/speakeasy_sdk_generation.yml?style=for-the-badge" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" /></a>
+  <a href="https://github.com/speakeasy-sdks/planetscale-go/releases"><img src="https://img.shields.io/github/v/release/speakeasy-sdks/planetscale-go?sort=semver&style=for-the-badge" /></a>
+</div>
 
 <!-- Start SDK Installation -->
 ## SDK Installation
