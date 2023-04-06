@@ -6,7 +6,7 @@
    <a href="https://github.com/speakeasy-sdks/planetscale-go/actions"><img src="https://img.shields.io/github/actions/workflow/status/speakeasy-sdks/planetscale-go/speakeasy_sdk_generation.yml?style=for-the-badge" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" /></a>
   <a href="https://github.com/speakeasy-sdks/planetscale-go/releases"><img src="https://img.shields.io/github/v/release/speakeasy-sdks/planetscale-go?sort=semver&style=for-the-badge" /></a>
-</div>
+</div> 
 
 <!-- Start SDK Installation -->
 ## SDK Installation
