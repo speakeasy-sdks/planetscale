@@ -17,6 +17,7 @@ func main() {
         }),
     )
 
+    ctx := context.Background()    
     req := operations.CreateADatabaseRequest{
         RequestBody: &operations.CreateADatabaseRequestBody{
             Name: "corrupti",
@@ -25,7 +26,6 @@ func main() {
         Organization: "distinctio",
     }
 
-    ctx := context.Background()
     res, err := s.Databases.Create(ctx, req)
     if err != nil {
         log.Fatal(err)
