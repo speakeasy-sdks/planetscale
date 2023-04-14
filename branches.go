@@ -52,7 +52,10 @@ func newBranches(defaultClient, securityClient HTTPClient, serverURL, language, 
 // | Database | `demote_branches` |
 func (s *branches) CancelDemotionRequest(ctx context.Context, request operations.CancelOrDenyADemotionRequestRequest) (*operations.CancelOrDenyADemotionRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/demotion-request", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/demotion-request", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "DELETE", url, nil)
 	if err != nil {
@@ -108,7 +111,10 @@ func (s *branches) CancelDemotionRequest(ctx context.Context, request operations
 // | Database | `write_branches` |
 func (s *branches) Create(ctx context.Context, request operations.CreateABranchRequest) (*operations.CreateABranchResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "RequestBody", "json")
 	if err != nil {
@@ -179,7 +185,10 @@ func (s *branches) Create(ctx context.Context, request operations.CreateABranchR
 // | Database | `promote_branches` |
 func (s *branches) CreatePromotionRequest(ctx context.Context, request operations.CreateAPromotionRequestRequest) (*operations.CreateAPromotionRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/promotion-request", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/promotion-request", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
@@ -244,7 +253,10 @@ func (s *branches) CreatePromotionRequest(ctx context.Context, request operation
 // | Branch | `delete_branch` |
 func (s *branches) Delete(ctx context.Context, request operations.DeleteABranchRequest) (*operations.DeleteABranchResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "DELETE", url, nil)
 	if err != nil {
@@ -298,7 +310,10 @@ func (s *branches) Delete(ctx context.Context, request operations.DeleteABranchR
 // | Database | `demote_branches` |
 func (s *branches) Demote(ctx context.Context, request operations.DemoteABranchRequest) (*operations.DemoteABranchResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/demote", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/demote", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
@@ -363,7 +378,10 @@ func (s *branches) Demote(ctx context.Context, request operations.DemoteABranchR
 // | Branch | `read_branch` |
 func (s *branches) Get(ctx context.Context, request operations.GetABranchRequest) (*operations.GetABranchResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -428,7 +446,10 @@ func (s *branches) Get(ctx context.Context, request operations.GetABranchRequest
 // | Branch | `read_branch` |
 func (s *branches) GetDemotionRequest(ctx context.Context, request operations.GetADemotionRequestRequest) (*operations.GetADemotionRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/demotion-request", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/demotion-request", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -492,7 +513,10 @@ func (s *branches) GetDemotionRequest(ctx context.Context, request operations.Ge
 // | Database | `promote_branches` |
 func (s *branches) GetPromotionRequest(ctx context.Context, request operations.GetAPromotionRequestRequest) (*operations.GetAPromotionRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/promotion-request", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/promotion-request", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -557,7 +581,10 @@ func (s *branches) GetPromotionRequest(ctx context.Context, request operations.G
 // | Branch | `read_branch` |
 func (s *branches) GetSchema(ctx context.Context, request operations.GetABranchSchemaRequest) (*operations.GetABranchSchemaResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/schema", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/schema", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -626,7 +653,10 @@ func (s *branches) GetSchema(ctx context.Context, request operations.GetABranchS
 // | Branch | `read_branch` |
 func (s *branches) GetStatus(ctx context.Context, request operations.GetBranchStatusRequest) (*operations.GetBranchStatusResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/status", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/status", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -691,7 +721,10 @@ func (s *branches) GetStatus(ctx context.Context, request operations.GetBranchSt
 // | Branch | `read_branch` |
 func (s *branches) List(ctx context.Context, request operations.ListBranchesRequest) (*operations.ListBranchesResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {

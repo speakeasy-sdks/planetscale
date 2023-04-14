@@ -20,10 +20,10 @@ func main() {
     ctx := context.Background()    
     req := operations.CreateADatabaseRequest{
         RequestBody: &operations.CreateADatabaseRequestBody{
-            Name: "corrupti",
-            Notes: "provident",
+            Name: "Terrence Rau",
+            Notes: "nulla",
         },
-        Organization: "distinctio",
+        Organization: "corrupti",
     }
 
     res, err := s.Databases.Create(ctx, req)

@@ -50,7 +50,10 @@ func newDeployRequests(defaultClient, securityClient HTTPClient, serverURL, lang
 // | Database | `deploy_deploy_requests` |
 func (s *deployRequests) Cancel(ctx context.Context, request operations.CancelAQueuedDeployRequestRequest) (*operations.CancelAQueuedDeployRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/cancel", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/cancel", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
@@ -109,7 +112,10 @@ func (s *deployRequests) Cancel(ctx context.Context, request operations.CancelAQ
 // | Database | `write_deploy_requests` |
 func (s *deployRequests) Close(ctx context.Context, request operations.CloseADeployRequestRequest) (*operations.CloseADeployRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "RequestBody", "json")
 	if err != nil {
@@ -175,7 +181,10 @@ func (s *deployRequests) Close(ctx context.Context, request operations.CloseADep
 // | Database | `deploy_deploy_requests` |
 func (s *deployRequests) CompleteErroredDeploy(ctx context.Context, request operations.CompleteAnErroredDeployRequest) (*operations.CompleteAnErroredDeployResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/complete-deploy", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/complete-deploy", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
@@ -234,7 +243,10 @@ func (s *deployRequests) CompleteErroredDeploy(ctx context.Context, request oper
 // | Database | `deploy_deploy_requests` |
 func (s *deployRequests) CompleteGatedDeploy(ctx context.Context, request operations.CompleteAGatedDeployRequestRequest) (*operations.CompleteAGatedDeployRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/apply-deploy", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/apply-deploy", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
@@ -293,7 +305,10 @@ func (s *deployRequests) CompleteGatedDeploy(ctx context.Context, request operat
 // | Database | `deploy_deploy_requests` |
 func (s *deployRequests) CompleteRevert(ctx context.Context, request operations.CompleteARevertRequest) (*operations.CompleteARevertResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/revert", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/revert", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
@@ -352,7 +367,10 @@ func (s *deployRequests) CompleteRevert(ctx context.Context, request operations.
 // | Database | `write_deploy_requests` |
 func (s *deployRequests) Create(ctx context.Context, request operations.CreateADeployRequestRequest) (*operations.CreateADeployRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "RequestBody", "json")
 	if err != nil {
@@ -418,7 +436,10 @@ func (s *deployRequests) Create(ctx context.Context, request operations.CreateAD
 // | Database | `read_deploy_requests` |
 func (s *deployRequests) Get(ctx context.Context, request operations.GetADeployRequestRequest) (*operations.GetADeployRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -479,7 +500,10 @@ func (s *deployRequests) Get(ctx context.Context, request operations.GetADeployR
 // | Database | `read_deploy_requests` |
 func (s *deployRequests) GetDeployment(ctx context.Context, request operations.GetADeploymentRequest) (*operations.GetADeploymentResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/deployment", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/deployment", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -525,7 +549,10 @@ func (s *deployRequests) GetDeployment(ctx context.Context, request operations.G
 // <p>Get the deploy queue for a database</p>
 func (s *deployRequests) GetQueue(ctx context.Context, request operations.GetADeployQueueRequest) (*operations.GetADeployQueueResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-queue", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-queue", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -586,7 +613,10 @@ func (s *deployRequests) GetQueue(ctx context.Context, request operations.GetADe
 // | Database | `read_deploy_requests` |
 func (s *deployRequests) List(ctx context.Context, request operations.ListDeployRequestsRequest) (*operations.ListDeployRequestsResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -651,7 +681,10 @@ func (s *deployRequests) List(ctx context.Context, request operations.ListDeploy
 // | Database | `read_deploy_requests` |
 func (s *deployRequests) ListOperations(ctx context.Context, request operations.ListDeployOperationsRequest) (*operations.ListDeployOperationsResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/operations", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/operations", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -714,7 +747,10 @@ func (s *deployRequests) ListOperations(ctx context.Context, request operations.
 // | Database | `deploy_deploy_requests` |
 func (s *deployRequests) Queue(ctx context.Context, request operations.QueueADeployRequestRequest) (*operations.QueueADeployRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/deploy", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/deploy", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
@@ -775,7 +811,10 @@ func (s *deployRequests) Queue(ctx context.Context, request operations.QueueADep
 // | Database | `deploy_deploy_requests` |
 func (s *deployRequests) SkipRevertPeriod(ctx context.Context, request operations.SkipRevertPeriodRequest) (*operations.SkipRevertPeriodResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/skip-revert", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/skip-revert", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
@@ -836,7 +875,10 @@ func (s *deployRequests) SkipRevertPeriod(ctx context.Context, request operation
 // | Database | `deploy_deploy_requests` |
 func (s *deployRequests) Update(ctx context.Context, request operations.UpdateAutoApplyForDeployRequestRequest) (*operations.UpdateAutoApplyForDeployRequestResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/auto-apply", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/auto-apply", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "PUT", url, nil)
 	if err != nil {
