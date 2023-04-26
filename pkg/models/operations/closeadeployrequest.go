@@ -15,6 +15,10 @@ const (
 	CloseADeployRequestRequestBodyStateEnumClosed CloseADeployRequestRequestBodyStateEnum = "closed"
 )
 
+func (e CloseADeployRequestRequestBodyStateEnum) ToPointer() *CloseADeployRequestRequestBodyStateEnum {
+	return &e
+}
+
 func (e *CloseADeployRequestRequestBodyStateEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

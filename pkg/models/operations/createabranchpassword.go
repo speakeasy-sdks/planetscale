@@ -18,6 +18,10 @@ const (
 	CreateABranchPasswordRequestBodyRoleEnumReadwriter CreateABranchPasswordRequestBodyRoleEnum = "readwriter"
 )
 
+func (e CreateABranchPasswordRequestBodyRoleEnum) ToPointer() *CreateABranchPasswordRequestBodyRoleEnum {
+	return &e
+}
+
 func (e *CreateABranchPasswordRequestBodyRoleEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

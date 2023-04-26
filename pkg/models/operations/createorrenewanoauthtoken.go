@@ -16,6 +16,10 @@ const (
 	CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnumRefreshToken      CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum = "refresh_token"
 )
 
+func (e CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum) ToPointer() *CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum {
+	return &e
+}
+
 func (e *CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {
