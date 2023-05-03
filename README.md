@@ -34,16 +34,14 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CreateADatabaseRequest{
+    ctx := context.Background()
+    res, err := s.Databases.Create(ctx, operations.CreateADatabaseRequest{
         RequestBody: &operations.CreateADatabaseRequestBody{
             Name: "Terrence Rau",
             Notes: planetscale.String("nulla"),
         },
         Organization: "corrupti",
-    }
-
-    res, err := s.Databases.Create(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

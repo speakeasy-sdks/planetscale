@@ -40,11 +40,11 @@ func newOrganizations(defaultClient, securityClient HTTPClient, serverURL, langu
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | User | `read_organizations` |
 // | Organization | `read_organization` |
+
 func (s *organizations) Get(ctx context.Context, request operations.GetAnOrganizationRequest) (*operations.GetAnOrganizationResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{name}", request, nil)
@@ -103,10 +103,10 @@ func (s *organizations) Get(ctx context.Context, request operations.GetAnOrganiz
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | User | `read_organizations` |
+
 func (s *organizations) List(ctx context.Context, request operations.ListOrganizationsRequest) (*operations.ListOrganizationsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/organizations"
@@ -166,11 +166,11 @@ func (s *organizations) List(ctx context.Context, request operations.ListOrganiz
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | User | `read_organizations` |
 // | Organization | `read_organization` |
+
 func (s *organizations) ListRegions(ctx context.Context, request operations.ListRegionsForAnOrganizationRequest) (*operations.ListRegionsForAnOrganizationResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{name}/region", request, nil)
@@ -233,10 +233,10 @@ func (s *organizations) ListRegions(ctx context.Context, request operations.List
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `write_organization` |
+
 func (s *organizations) Update(ctx context.Context, request operations.UpdateAnOrganizationRequest) (*operations.UpdateAnOrganizationResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{name}", request, nil)

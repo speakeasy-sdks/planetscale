@@ -36,6 +36,9 @@ func newUsers(defaultClient, securityClient HTTPClient, serverURL, language, sdk
 // Current - Get current user
 //
 // <p>Get the user associated with this service token</p>
+//
+//
+
 func (s *users) Current(ctx context.Context) (*operations.GetCurrentUserResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/user"

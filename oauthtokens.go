@@ -40,8 +40,10 @@ func newOAuthTokens(defaultClient, securityClient HTTPClient, serverURL, languag
 // A service token   must have the following access   in order to use this API endpoint:
 //
 // **Service Token Accesses**
+//   `write_oauth_tokens`
 //
-//	`write_oauth_tokens`
+//
+
 func (s *oAuthTokens) Renew(ctx context.Context, request operations.CreateOrRenewAnOauthTokenRequest) (*operations.CreateOrRenewAnOauthTokenResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/oauth-applications/{id}/token", request, nil)

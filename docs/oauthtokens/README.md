@@ -42,8 +42,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CreateOrRenewAnOauthTokenRequest{
+    ctx := context.Background()
+    res, err := s.OAuthTokens.Renew(ctx, operations.CreateOrRenewAnOauthTokenRequest{
         RequestBody: &operations.CreateOrRenewAnOauthTokenRequestBody{
             ClientID: "recusandae",
             ClientSecret: "omnis",
@@ -54,9 +54,7 @@ func main() {
         },
         ID: "28909b3f-e49a-48d9-8bf4-8633323f9b77",
         Organization: "reiciendis",
-    }
-
-    res, err := s.OAuthTokens.Renew(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

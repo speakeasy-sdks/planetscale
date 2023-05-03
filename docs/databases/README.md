@@ -51,16 +51,14 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CreateADatabaseRequest{
+    ctx := context.Background()
+    res, err := s.Databases.Create(ctx, operations.CreateADatabaseRequest{
         RequestBody: &operations.CreateADatabaseRequestBody{
             Name: "Sophia Wintheiser",
             Notes: planetscale.String("nam"),
         },
         Organization: "id",
-    }
-
-    res, err := s.Databases.Create(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -106,13 +104,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteADatabaseRequest{
+    ctx := context.Background()
+    res, err := s.Databases.Delete(ctx, operations.DeleteADatabaseRequest{
         Name: "Jaime Will",
         Organization: "nisi",
-    }
-
-    res, err := s.Databases.Delete(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -158,13 +154,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetADatabaseRequest{
+    ctx := context.Background()
+    res, err := s.Databases.Get(ctx, operations.GetADatabaseRequest{
         Name: "Ada Moen IV",
         Organization: "magnam",
-    }
-
-    res, err := s.Databases.Get(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -209,14 +203,12 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListDatabasesRequest{
+    ctx := context.Background()
+    res, err := s.Databases.List(ctx, operations.ListDatabasesRequest{
         Organization: "distinctio",
         Page: planetscale.Float64(6601.74),
         PerPage: planetscale.Float64(2879.91),
-    }
-
-    res, err := s.Databases.List(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -262,15 +254,13 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListDatabasePromotionRequestsRequest{
+    ctx := context.Background()
+    res, err := s.Databases.ListPromotionRequests(ctx, operations.ListDatabasePromotionRequestsRequest{
         Name: "Laurie Mosciski",
         Organization: "vero",
         Page: planetscale.Float64(1354.74),
         PerPage: planetscale.Float64(1028.63),
-    }
-
-    res, err := s.Databases.ListPromotionRequests(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -318,15 +308,13 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListReadOnlyRegionsRequest{
+    ctx := context.Background()
+    res, err := s.Databases.ListReadOnlyRegions(ctx, operations.ListReadOnlyRegionsRequest{
         Name: "Frances Marks",
         Organization: "quos",
         Page: planetscale.Float64(5743.25),
         PerPage: planetscale.Float64(336.25),
-    }
-
-    res, err := s.Databases.ListReadOnlyRegions(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -372,15 +360,13 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListDatabaseRegionsRequest{
+    ctx := context.Background()
+    res, err := s.Databases.ListRegions(ctx, operations.ListDatabaseRegionsRequest{
         Name: "Abel O'Hara",
         Organization: "dolor",
         Page: planetscale.Float64(8965.47),
         PerPage: planetscale.Float64(1412.64),
-    }
-
-    res, err := s.Databases.ListRegions(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -426,8 +412,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.UpdateDatabaseSettingsRequest{
+    ctx := context.Background()
+    res, err := s.Databases.Update(ctx, operations.UpdateDatabaseSettingsRequest{
         RequestBody: &operations.UpdateDatabaseSettingsRequestBody{
             AllowDataBranching: planetscale.Bool(false),
             AutomaticMigrations: planetscale.Bool(false),
@@ -442,9 +428,7 @@ func main() {
         },
         Name: "Frederick Schoen",
         Organization: "in",
-    }
-
-    res, err := s.Databases.Update(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

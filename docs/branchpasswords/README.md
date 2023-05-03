@@ -51,8 +51,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.CreateABranchPasswordRequest{
+    ctx := context.Background()
+    res, err := s.BranchPasswords.Create(ctx, operations.CreateABranchPasswordRequest{
         RequestBody: &operations.CreateABranchPasswordRequestBody{
             ReadOnlyRegionID: planetscale.String("illum"),
             Role: operations.CreateABranchPasswordRequestBodyRoleEnumWriter.ToPointer(),
@@ -61,9 +61,7 @@ func main() {
         Branch: "deserunt",
         Database: "suscipit",
         Organization: "iure",
-    }
-
-    res, err := s.BranchPasswords.Create(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -110,15 +108,13 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteABranchPasswordRequest{
+    ctx := context.Background()
+    res, err := s.BranchPasswords.Delete(ctx, operations.DeleteABranchPasswordRequest{
         Branch: "magnam",
         Database: "debitis",
         ID: "0f467cc8-796e-4d15-9a05-dfc2ddf7cc78",
         Organization: "porro",
-    }
-
-    res, err := s.BranchPasswords.Delete(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -165,16 +161,14 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetABranchPasswordRequest{
+    ctx := context.Background()
+    res, err := s.BranchPasswords.Get(ctx, operations.GetABranchPasswordRequest{
         Branch: "dolorum",
         Database: "dicta",
         ID: "ba928fc8-1674-42cb-b392-05929396fea7",
         Organization: "corporis",
         ReadOnlyRegionID: planetscale.String("iste"),
-    }
-
-    res, err := s.BranchPasswords.Get(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -221,17 +215,15 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListBranchPasswordsRequest{
+    ctx := context.Background()
+    res, err := s.BranchPasswords.List(ctx, operations.ListBranchPasswordsRequest{
         Branch: "iure",
         Database: "saepe",
         Organization: "quidem",
         Page: planetscale.Float64(992.8),
         PerPage: planetscale.Float64(602.25),
         ReadOnlyRegionID: planetscale.String("reiciendis"),
-    }
-
-    res, err := s.BranchPasswords.List(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -278,8 +270,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.RenewABranchPasswordRequest{
+    ctx := context.Background()
+    res, err := s.BranchPasswords.Renew(ctx, operations.RenewABranchPasswordRequest{
         RequestBody: &operations.RenewABranchPasswordRequestBody{
             ReadOnlyRegionID: planetscale.String("est"),
         },
@@ -287,9 +279,7 @@ func main() {
         Database: "laborum",
         ID: "2352c595-5907-4aff-9a3a-2fa946773925",
         Organization: "vitae",
-    }
-
-    res, err := s.BranchPasswords.Renew(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -336,8 +326,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.UpdateABranchPasswordRequest{
+    ctx := context.Background()
+    res, err := s.BranchPasswords.Update(ctx, operations.UpdateABranchPasswordRequest{
         RequestBody: &operations.UpdateABranchPasswordRequestBody{
             DisplayName: "laborum",
             ReadOnlyRegionID: planetscale.String("animi"),
@@ -346,9 +336,7 @@ func main() {
         Database: "odit",
         ID: "c3f5ad01-9da1-4ffe-b8f0-97b0074f1547",
         Organization: "dicta",
-    }
-
-    res, err := s.BranchPasswords.Update(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

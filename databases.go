@@ -38,15 +38,14 @@ func newDatabases(defaultClient, securityClient HTTPClient, serverURL, language,
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`create_databases`
+//   `create_databases`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `create_databases` |
+
 func (s *databases) Create(ctx context.Context, request operations.CreateADatabaseRequest) (*operations.CreateADatabaseResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases", request, nil)
@@ -111,16 +110,15 @@ func (s *databases) Create(ctx context.Context, request operations.CreateADataba
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`delete_database`
+//   `delete_database`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `delete_databases` |
 // | Database | `delete_database` |
+
 func (s *databases) Delete(ctx context.Context, request operations.DeleteADatabaseRequest) (*operations.DeleteADatabaseResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{name}", request, nil)
@@ -170,16 +168,15 @@ func (s *databases) Delete(ctx context.Context, request operations.DeleteADataba
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`read_database`, `delete_database`, `write_database`, `read_branch`, `delete_branch`, `create_branch`, `delete_production_branch`, `connect_branch`, `connect_production_branch`, `delete_branch_password`, `delete_production_branch_password`, `read_deploy_request`, `create_deploy_request`, `approve_deploy_request`, `read_comment`, `create_comment`
+//   `read_database`, `delete_database`, `write_database`, `read_branch`, `delete_branch`, `create_branch`, `delete_production_branch`, `connect_branch`, `connect_production_branch`, `delete_branch_password`, `delete_production_branch_password`, `read_deploy_request`, `create_deploy_request`, `approve_deploy_request`, `read_comment`, `create_comment`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `read_databases` |
 // | Database | `read_database` |
+
 func (s *databases) Get(ctx context.Context, request operations.GetADatabaseRequest) (*operations.GetADatabaseResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{name}", request, nil)
@@ -237,15 +234,14 @@ func (s *databases) Get(ctx context.Context, request operations.GetADatabaseRequ
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`read_database`, `delete_database`, `write_database`, `read_branch`, `delete_branch`, `create_branch`, `delete_production_branch`, `connect_branch`, `connect_production_branch`, `delete_branch_password`, `delete_production_branch_password`, `read_deploy_request`, `create_deploy_request`, `approve_deploy_request`, `read_comment`, `create_comment`
+//   `read_database`, `delete_database`, `write_database`, `read_branch`, `delete_branch`, `create_branch`, `delete_production_branch`, `connect_branch`, `connect_production_branch`, `delete_branch_password`, `delete_production_branch_password`, `read_deploy_request`, `create_deploy_request`, `approve_deploy_request`, `read_comment`, `create_comment`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `read_databases` |
+
 func (s *databases) List(ctx context.Context, request operations.ListDatabasesRequest) (*operations.ListDatabasesResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases", request, nil)
@@ -307,16 +303,15 @@ func (s *databases) List(ctx context.Context, request operations.ListDatabasesRe
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`read_database`, `delete_database`, `write_database`, `read_branch`, `delete_branch`, `create_branch`, `delete_production_branch`, `connect_branch`, `connect_production_branch`, `delete_branch_password`, `delete_production_branch_password`, `read_deploy_request`, `create_deploy_request`, `approve_deploy_request`, `read_comment`, `create_comment`
+//   `read_database`, `delete_database`, `write_database`, `read_branch`, `delete_branch`, `create_branch`, `delete_production_branch`, `connect_branch`, `connect_production_branch`, `delete_branch_password`, `delete_production_branch_password`, `read_deploy_request`, `create_deploy_request`, `approve_deploy_request`, `read_comment`, `create_comment`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `read_databases` |
 // | Database | `read_database` |
+
 func (s *databases) ListPromotionRequests(ctx context.Context, request operations.ListDatabasePromotionRequestsRequest) (*operations.ListDatabasePromotionRequestsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{name}/promotion-requests", request, nil)
@@ -380,16 +375,15 @@ func (s *databases) ListPromotionRequests(ctx context.Context, request operation
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`read_database`, `delete_database`, `write_database`, `read_branch`, `delete_branch`, `create_branch`, `delete_production_branch`, `connect_branch`, `connect_production_branch`, `delete_branch_password`, `delete_production_branch_password`, `read_deploy_request`, `create_deploy_request`, `approve_deploy_request`, `read_comment`, `create_comment`
+//   `read_database`, `delete_database`, `write_database`, `read_branch`, `delete_branch`, `create_branch`, `delete_production_branch`, `connect_branch`, `connect_production_branch`, `delete_branch_password`, `delete_production_branch_password`, `read_deploy_request`, `create_deploy_request`, `approve_deploy_request`, `read_comment`, `create_comment`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `read_branches` |
 // | Database | `read_branches` |
+
 func (s *databases) ListReadOnlyRegions(ctx context.Context, request operations.ListReadOnlyRegionsRequest) (*operations.ListReadOnlyRegionsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{name}/read-only-regions", request, nil)
@@ -451,16 +445,15 @@ func (s *databases) ListReadOnlyRegions(ctx context.Context, request operations.
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`read_database`, `delete_database`, `write_database`, `read_branch`, `delete_branch`, `create_branch`, `delete_production_branch`, `connect_branch`, `connect_production_branch`, `delete_branch_password`, `delete_production_branch_password`, `read_deploy_request`, `create_deploy_request`, `approve_deploy_request`, `read_comment`, `create_comment`
+//   `read_database`, `delete_database`, `write_database`, `read_branch`, `delete_branch`, `create_branch`, `delete_production_branch`, `connect_branch`, `connect_production_branch`, `delete_branch_password`, `delete_production_branch_password`, `read_deploy_request`, `create_deploy_request`, `approve_deploy_request`, `read_comment`, `create_comment`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `read_databases` |
 // | Database | `read_database` |
+
 func (s *databases) ListRegions(ctx context.Context, request operations.ListDatabaseRegionsRequest) (*operations.ListDatabaseRegionsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{name}/regions", request, nil)
@@ -522,16 +515,15 @@ func (s *databases) ListRegions(ctx context.Context, request operations.ListData
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`write_database`
+//   `write_database`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `write_databases` |
 // | Database | `write_database` |
+
 func (s *databases) Update(ctx context.Context, request operations.UpdateDatabaseSettingsRequest) (*operations.UpdateDatabaseSettingsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{name}", request, nil)

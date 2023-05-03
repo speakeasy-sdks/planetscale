@@ -40,16 +40,15 @@ func newBranches(defaultClient, securityClient HTTPClient, serverURL, language, 
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`demote_branch`
+//   `demote_branch`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `demote_branches` |
 // | Database | `demote_branches` |
+
 func (s *branches) CancelDemotionRequest(ctx context.Context, request operations.CancelOrDenyADemotionRequestRequest) (*operations.CancelOrDenyADemotionRequestResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/demotion-request", request, nil)
@@ -99,16 +98,15 @@ func (s *branches) CancelDemotionRequest(ctx context.Context, request operations
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`create_branch`
+//   `create_branch`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `write_branches` |
 // | Database | `write_branches` |
+
 func (s *branches) Create(ctx context.Context, request operations.CreateABranchRequest) (*operations.CreateABranchResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches", request, nil)
@@ -173,16 +171,15 @@ func (s *branches) Create(ctx context.Context, request operations.CreateABranchR
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`connect_production_branch`
+//   `connect_production_branch`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `promote_branches` |
 // | Database | `promote_branches` |
+
 func (s *branches) CreatePromotionRequest(ctx context.Context, request operations.CreateAPromotionRequestRequest) (*operations.CreateAPromotionRequestResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/promotion-request", request, nil)
@@ -240,17 +237,16 @@ func (s *branches) CreatePromotionRequest(ctx context.Context, request operation
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`delete_branch`
+//   `delete_branch`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `delete_branches`, `delete_production_branches` |
 // | Database | `delete_branches`, `delete_production_branches` |
 // | Branch | `delete_branch` |
+
 func (s *branches) Delete(ctx context.Context, request operations.DeleteABranchRequest) (*operations.DeleteABranchResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}", request, nil)
@@ -303,11 +299,11 @@ func (s *branches) Delete(ctx context.Context, request operations.DeleteABranchR
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `demote_branches` |
 // | Database | `demote_branches` |
+
 func (s *branches) Demote(ctx context.Context, request operations.DemoteABranchRequest) (*operations.DemoteABranchResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/demote", request, nil)
@@ -365,17 +361,16 @@ func (s *branches) Demote(ctx context.Context, request operations.DemoteABranchR
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
+//   `read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `read_branches` |
 // | Database | `read_branches` |
 // | Branch | `read_branch` |
+
 func (s *branches) Get(ctx context.Context, request operations.GetABranchRequest) (*operations.GetABranchResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}", request, nil)
@@ -433,17 +428,16 @@ func (s *branches) Get(ctx context.Context, request operations.GetABranchRequest
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`connect_branch`, `read_branch`
+//   `connect_branch`, `read_branch`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `read_branches` |
 // | Database | `read_branches` |
 // | Branch | `read_branch` |
+
 func (s *branches) GetDemotionRequest(ctx context.Context, request operations.GetADemotionRequestRequest) (*operations.GetADemotionRequestResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/demotion-request", request, nil)
@@ -501,16 +495,15 @@ func (s *branches) GetDemotionRequest(ctx context.Context, request operations.Ge
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`connect_production_branch`
+//   `connect_production_branch`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `promote_branches` |
 // | Database | `promote_branches` |
+
 func (s *branches) GetPromotionRequest(ctx context.Context, request operations.GetAPromotionRequestRequest) (*operations.GetAPromotionRequestResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/promotion-request", request, nil)
@@ -568,17 +561,16 @@ func (s *branches) GetPromotionRequest(ctx context.Context, request operations.G
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
+//   `read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `read_branches` |
 // | Database | `read_branches` |
 // | Branch | `read_branch` |
+
 func (s *branches) GetSchema(ctx context.Context, request operations.GetABranchSchemaRequest) (*operations.GetABranchSchemaResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/schema", request, nil)
@@ -640,17 +632,16 @@ func (s *branches) GetSchema(ctx context.Context, request operations.GetABranchS
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
+//   `read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `read_branches` |
 // | Database | `read_branches` |
 // | Branch | `read_branch` |
+
 func (s *branches) GetStatus(ctx context.Context, request operations.GetBranchStatusRequest) (*operations.GetBranchStatusResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{name}/status", request, nil)
@@ -708,17 +699,16 @@ func (s *branches) GetStatus(ctx context.Context, request operations.GetBranchSt
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//
-//	`read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
+//   `read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `read_branches` |
 // | Database | `read_branches` |
 // | Branch | `read_branch` |
+
 func (s *branches) List(ctx context.Context, request operations.ListBranchesRequest) (*operations.ListBranchesResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches", request, nil)

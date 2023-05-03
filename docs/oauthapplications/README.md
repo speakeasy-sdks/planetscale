@@ -44,14 +44,12 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteAnOauthTokenRequest{
+    ctx := context.Background()
+    res, err := s.OAuthApplications.Delete(ctx, operations.DeleteAnOauthTokenRequest{
         ApplicationID: "quis",
         Organization: "totam",
         TokenID: "dignissimos",
-    }
-
-    res, err := s.OAuthApplications.Delete(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -92,13 +90,11 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetAnOauthApplicationRequest{
+    ctx := context.Background()
+    res, err := s.OAuthApplications.Get(ctx, operations.GetAnOauthApplicationRequest{
         ApplicationID: "eaque",
         Organization: "quis",
-    }
-
-    res, err := s.OAuthApplications.Get(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -139,14 +135,12 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetAnOauthTokenRequest{
+    ctx := context.Background()
+    res, err := s.OAuthApplications.GetToken(ctx, operations.GetAnOauthTokenRequest{
         ApplicationID: "nesciunt",
         Organization: "eos",
         TokenID: "perferendis",
-    }
-
-    res, err := s.OAuthApplications.GetToken(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -187,14 +181,12 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListOauthApplicationsRequest{
+    ctx := context.Background()
+    res, err := s.OAuthApplications.List(ctx, operations.ListOauthApplicationsRequest{
         Organization: "dolores",
         Page: planetscale.Float64(7936.98),
         PerPage: planetscale.Float64(4634.51),
-    }
-
-    res, err := s.OAuthApplications.List(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -237,15 +229,13 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListOauthTokensRequest{
+    ctx := context.Background()
+    res, err := s.OAuthApplications.ListTokens(ctx, operations.ListOauthTokensRequest{
         ApplicationID: "dolor",
         Organization: "vero",
         Page: planetscale.Float64(3453.52),
         PerPage: planetscale.Float64(9441.2),
-    }
-
-    res, err := s.OAuthApplications.ListTokens(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
