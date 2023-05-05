@@ -8,9 +8,9 @@
 
 ### Available Operations
 
-* [Renew](#renew) - Create or renew an OAuth token
+* [Create](#create) - Create or renew an OAuth token
 
-## Renew
+## Create
 
 
 <p>Create an OAuth token from an authorization grant code, or refresh an OAuth token from a refresh token</p>
@@ -43,7 +43,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.OAuthTokens.Renew(ctx, operations.CreateOrRenewAnOauthTokenRequest{
+    res, err := s.OAuthTokens.Create(ctx, operations.CreateOrRenewAnOauthTokenRequest{
         RequestBody: &operations.CreateOrRenewAnOauthTokenRequestBody{
             ClientID: "recusandae",
             ClientSecret: "omnis",

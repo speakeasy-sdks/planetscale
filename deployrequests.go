@@ -32,67 +32,6 @@ func newDeployRequests(defaultClient, securityClient HTTPClient, serverURL, lang
 	}
 }
 
-// Cancel - Cancel a queued deploy request
-//
-// ### Authorization
-// A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
-//
-// **Service Token Accesses**
-//   `read_deploy_request`, `create_deploy_request`
-//
-// **OAuth Scopes**
-//
-//   | Resource | Scopes |
-// | :------- | :---------- |
-// | Organization | `deploy_deploy_requests` |
-// | Database | `deploy_deploy_requests` |
-
-func (s *deployRequests) Cancel(ctx context.Context, request operations.CancelAQueuedDeployRequestRequest) (*operations.CancelAQueuedDeployRequestResponse, error) {
-	baseURL := s.serverURL
-	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/cancel", request, nil)
-	if err != nil {
-		return nil, fmt.Errorf("error generating URL: %w", err)
-	}
-
-	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
-	if err != nil {
-		return nil, fmt.Errorf("error creating request: %w", err)
-	}
-
-	client := s.securityClient
-
-	httpRes, err := client.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("error sending request: %w", err)
-	}
-	if httpRes == nil {
-		return nil, fmt.Errorf("error sending request: no response")
-	}
-	defer httpRes.Body.Close()
-
-	contentType := httpRes.Header.Get("Content-Type")
-
-	res := &operations.CancelAQueuedDeployRequestResponse{
-		StatusCode:  httpRes.StatusCode,
-		ContentType: contentType,
-		RawResponse: httpRes,
-	}
-	switch {
-	case httpRes.StatusCode == 200:
-		switch {
-		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
-				return nil, err
-			}
-
-			res.CancelAQueuedDeployRequest200ApplicationJSONObject = out
-		}
-	}
-
-	return res, nil
-}
-
 // Close - Close a deploy request
 //
 // ### Authorization
@@ -777,6 +716,67 @@ func (s *deployRequests) Queue(ctx context.Context, request operations.QueueADep
 			}
 
 			res.QueueADeployRequest200ApplicationJSONObject = out
+		}
+	}
+
+	return res, nil
+}
+
+// Queue - Cancel a queued deploy request
+//
+// ### Authorization
+// A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
+//
+// **Service Token Accesses**
+//   `read_deploy_request`, `create_deploy_request`
+//
+// **OAuth Scopes**
+//
+//   | Resource | Scopes |
+// | :------- | :---------- |
+// | Organization | `deploy_deploy_requests` |
+// | Database | `deploy_deploy_requests` |
+
+func (s *deployRequests) Queue(ctx context.Context, request operations.CancelAQueuedDeployRequestRequest) (*operations.CancelAQueuedDeployRequestResponse, error) {
+	baseURL := s.serverURL
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/deploy-requests/{number}/cancel", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error creating request: %w", err)
+	}
+
+	client := s.securityClient
+
+	httpRes, err := client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("error sending request: %w", err)
+	}
+	if httpRes == nil {
+		return nil, fmt.Errorf("error sending request: no response")
+	}
+	defer httpRes.Body.Close()
+
+	contentType := httpRes.Header.Get("Content-Type")
+
+	res := &operations.CancelAQueuedDeployRequestResponse{
+		StatusCode:  httpRes.StatusCode,
+		ContentType: contentType,
+		RawResponse: httpRes,
+	}
+	switch {
+	case httpRes.StatusCode == 200:
+		switch {
+		case utils.MatchContentType(contentType, `application/json`):
+			var out map[string]map[string]interface{}
+			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+				return nil, err
+			}
+
+			res.CancelAQueuedDeployRequest200ApplicationJSONObject = out
 		}
 	}
 

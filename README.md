@@ -93,7 +93,6 @@ func main() {
 
 ### [DeployRequests](docs/deployrequests/README.md)
 
-* [Cancel](docs/deployrequests/README.md#cancel) - Cancel a queued deploy request
 * [Close](docs/deployrequests/README.md#close) - Close a deploy request
 * [CompleteErroredDeploy](docs/deployrequests/README.md#completeerroreddeploy) - Complete an errored deploy
 * [CompleteGatedDeploy](docs/deployrequests/README.md#completegateddeploy) - Complete a gated deploy request
@@ -105,6 +104,7 @@ func main() {
 * [List](docs/deployrequests/README.md#list) - List deploy requests
 * [ListOperations](docs/deployrequests/README.md#listoperations) - List deploy operations
 * [Queue](docs/deployrequests/README.md#queue) - Queue a deploy request
+* [Queue](docs/deployrequests/README.md#queue) - Cancel a queued deploy request
 * [SkipRevertPeriod](docs/deployrequests/README.md#skiprevertperiod) - Skip revert period
 * [Update](docs/deployrequests/README.md#update) - Update auto-apply for deploy request
 
@@ -118,7 +118,7 @@ func main() {
 
 ### [OAuthTokens](docs/oauthtokens/README.md)
 
-* [Renew](docs/oauthtokens/README.md#renew) - Create or renew an OAuth token
+* [Create](docs/oauthtokens/README.md#create) - Create or renew an OAuth token
 
 ### [Organizations](docs/organizations/README.md)
 
