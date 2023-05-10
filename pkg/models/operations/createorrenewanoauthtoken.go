@@ -16,19 +16,23 @@ const (
 	CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnumRefreshToken      CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum = "refresh_token"
 )
 
+func (e CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum) ToPointer() *CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum {
+	return &e
+}
+
 func (e *CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum) UnmarshalJSON(data []byte) error {
-	var s string
-	if err := json.Unmarshal(data, &s); err != nil {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	switch s {
+	switch v {
 	case "authorization_code":
 		fallthrough
 	case "refresh_token":
-		*e = CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum(s)
+		*e = CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum: %s", s)
+		return fmt.Errorf("invalid value for CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum: %v", v)
 	}
 }
 

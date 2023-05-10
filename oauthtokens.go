@@ -32,7 +32,7 @@ func newOAuthTokens(defaultClient, securityClient HTTPClient, serverURL, languag
 	}
 }
 
-// Renew - Create or renew an OAuth token
+// Create - Create or renew an OAuth token
 //
 // <p>Create an OAuth token from an authorization grant code, or refresh an OAuth token from a refresh token</p>
 //
@@ -40,11 +40,16 @@ func newOAuthTokens(defaultClient, securityClient HTTPClient, serverURL, languag
 // A service token   must have the following access   in order to use this API endpoint:
 //
 // **Service Token Accesses**
+//   `write_oauth_tokens`
 //
-//	`write_oauth_tokens`
-func (s *oAuthTokens) Renew(ctx context.Context, request operations.CreateOrRenewAnOauthTokenRequest) (*operations.CreateOrRenewAnOauthTokenResponse, error) {
+//
+
+func (s *oAuthTokens) Create(ctx context.Context, request operations.CreateOrRenewAnOauthTokenRequest) (*operations.CreateOrRenewAnOauthTokenResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/oauth-applications/{id}/token", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/oauth-applications/{id}/token", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "RequestBody", "json")
 	if err != nil {

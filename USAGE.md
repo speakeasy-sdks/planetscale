@@ -2,12 +2,11 @@
 ```go
 package main
 
-import (
-    "context"
-    "log"
-    "github.com/speakeasy-sdks/planetscale"
-    "github.com/speakeasy-sdks/planetscale/pkg/models/shared"
-    "github.com/speakeasy-sdks/planetscale/pkg/models/operations"
+import(
+	"context"
+	"log"
+	"github.com/speakeasy-sdks/planetscale"
+	"github.com/speakeasy-sdks/planetscale/pkg/models/operations"
 )
 
 func main() {
@@ -17,16 +16,14 @@ func main() {
         }),
     )
 
-    req := operations.CreateADatabaseRequest{
-        RequestBody: &operations.CreateADatabaseRequestBody{
-            Name: "corrupti",
-            Notes: "provident",
-        },
-        Organization: "distinctio",
-    }
-
     ctx := context.Background()
-    res, err := s.Databases.Create(ctx, req)
+    res, err := s.Databases.Create(ctx, operations.CreateADatabaseRequest{
+        RequestBody: &operations.CreateADatabaseRequestBody{
+            Name: "Terrence Rau",
+            Notes: planetscale.String("nulla"),
+        },
+        Organization: "corrupti",
+    })
     if err != nil {
         log.Fatal(err)
     }

@@ -40,14 +40,17 @@ func newOrganizations(defaultClient, securityClient HTTPClient, serverURL, langu
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | User | `read_organizations` |
 // | Organization | `read_organization` |
+
 func (s *organizations) Get(ctx context.Context, request operations.GetAnOrganizationRequest) (*operations.GetAnOrganizationResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{name}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{name}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -100,10 +103,10 @@ func (s *organizations) Get(ctx context.Context, request operations.GetAnOrganiz
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | User | `read_organizations` |
+
 func (s *organizations) List(ctx context.Context, request operations.ListOrganizationsRequest) (*operations.ListOrganizationsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/organizations"
@@ -163,14 +166,17 @@ func (s *organizations) List(ctx context.Context, request operations.ListOrganiz
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | User | `read_organizations` |
 // | Organization | `read_organization` |
+
 func (s *organizations) ListRegions(ctx context.Context, request operations.ListRegionsForAnOrganizationRequest) (*operations.ListRegionsForAnOrganizationResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{name}/region", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{name}/region", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -227,13 +233,16 @@ func (s *organizations) ListRegions(ctx context.Context, request operations.List
 //
 // **OAuth Scopes**
 //
-//	| Resource | Scopes |
-//
+//   | Resource | Scopes |
 // | :------- | :---------- |
 // | Organization | `write_organization` |
+
 func (s *organizations) Update(ctx context.Context, request operations.UpdateAnOrganizationRequest) (*operations.UpdateAnOrganizationResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/organizations/{name}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{name}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "RequestBody", "json")
 	if err != nil {

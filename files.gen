@@ -10,6 +10,7 @@ planetscale.go
 go.mod
 go.sum
 pkg/types/date.go
+pkg/types/datetime.go
 pkg/utils/contenttype.go
 pkg/utils/form.go
 pkg/utils/headers.go
@@ -44,7 +45,6 @@ pkg/models/operations/listdatabasepromotionrequests.go
 pkg/models/operations/listreadonlyregions.go
 pkg/models/operations/listdatabaseregions.go
 pkg/models/operations/updatedatabasesettings.go
-pkg/models/operations/cancelaqueueddeployrequest.go
 pkg/models/operations/closeadeployrequest.go
 pkg/models/operations/completeanerroreddeploy.go
 pkg/models/operations/completeagateddeployrequest.go
@@ -56,6 +56,7 @@ pkg/models/operations/getadeployqueue.go
 pkg/models/operations/listdeployrequests.go
 pkg/models/operations/listdeployoperations.go
 pkg/models/operations/queueadeployrequest.go
+pkg/models/operations/cancelaqueueddeployrequest.go
 pkg/models/operations/skiprevertperiod.go
 pkg/models/operations/updateautoapplyfordeployrequest.go
 pkg/models/operations/deleteanoauthtoken.go
@@ -70,4 +71,13 @@ pkg/models/operations/listregionsforanorganization.go
 pkg/models/operations/updateanorganization.go
 pkg/models/operations/getcurrentuser.go
 pkg/models/shared/security.go
+docs/planetscale/README.md
+docs/branchpasswords/README.md
+docs/branches/README.md
+docs/databases/README.md
+docs/deployrequests/README.md
+docs/oauthapplications/README.md
+docs/oauthtokens/README.md
+docs/organizations/README.md
+docs/users/README.md
 USAGE.md
