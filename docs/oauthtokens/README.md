@@ -43,17 +43,13 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.OAuthTokens.Create(ctx, operations.CreateOrRenewAnOauthTokenRequest{
-        RequestBody: &operations.CreateOrRenewAnOauthTokenRequestBody{
-            ClientID: "recusandae",
-            ClientSecret: "omnis",
-            Code: planetscale.String("facilis"),
-            GrantType: operations.CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnumRefreshToken,
-            RedirectURI: planetscale.String("voluptatem"),
-            RefreshToken: planetscale.String("porro"),
-        },
-        ID: "28909b3f-e49a-48d9-8bf4-8633323f9b77",
-        Organization: "reiciendis",
+    res, err := s.OAuthTokens.Create(ctx, "architecto", "magnam", &operations.CreateOrRenewAnOauthTokenRequestBody{
+        ClientID: "et",
+        ClientSecret: "excepturi",
+        Code: planetscale.String("ullam"),
+        GrantType: operations.CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnumRefreshToken,
+        RedirectURI: planetscale.String("quos"),
+        RefreshToken: planetscale.String("sint"),
     })
     if err != nil {
         log.Fatal(err)

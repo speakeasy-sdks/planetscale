@@ -39,13 +39,13 @@ type CloseADeployRequestRequestBody struct {
 }
 
 type CloseADeployRequestRequest struct {
-	RequestBody *CloseADeployRequestRequestBody `request:"mediaType=application/json"`
 	// The name of the deploy request's database
 	Database string `pathParam:"style=simple,explode=false,name=database"`
 	// The number of the deploy request
 	Number string `pathParam:"style=simple,explode=false,name=number"`
 	// The name of the deploy request's organization
-	Organization string `pathParam:"style=simple,explode=false,name=organization"`
+	Organization string                          `pathParam:"style=simple,explode=false,name=organization"`
+	RequestBody  *CloseADeployRequestRequestBody `request:"mediaType=application/json"`
 }
 
 type CloseADeployRequestResponse struct {

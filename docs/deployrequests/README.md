@@ -8,6 +8,7 @@
 
 ### Available Operations
 
+* [Cancel](#cancel) - Cancel a queued deploy request
 * [Close](#close) - Close a deploy request
 * [CompleteErroredDeploy](#completeerroreddeploy) - Complete an errored deploy
 * [CompleteGatedDeploy](#completegateddeploy) - Complete a gated deploy request
@@ -19,9 +20,55 @@
 * [List](#list) - List deploy requests
 * [ListOperations](#listoperations) - List deploy operations
 * [Queue](#queue) - Queue a deploy request
-* [Queue](#queue) - Cancel a queued deploy request
 * [SkipRevertPeriod](#skiprevertperiod) - Skip revert period
 * [Update](#update) - Update auto-apply for deploy request
+
+## Cancel
+
+
+### Authorization
+A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
+
+**Service Token Accesses**
+  `read_deploy_request`, `create_deploy_request`
+
+**OAuth Scopes**
+
+  | Resource | Scopes |
+| :------- | :---------- |
+| Organization | `deploy_deploy_requests` |
+| Database | `deploy_deploy_requests` |
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"log"
+	"github.com/speakeasy-sdks/planetscale"
+	"github.com/speakeasy-sdks/planetscale/pkg/models/operations"
+)
+
+func main() {
+    s := planetscale.New(
+        planetscale.WithSecurity(shared.Security{
+            APIKeyHeader: "YOUR_API_KEY_HERE",
+        }),
+    )
+
+    ctx := context.Background()
+    res, err := s.DeployRequests.Cancel(ctx, "facilis", "tempore", "labore")
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.CancelAQueuedDeployRequest200ApplicationJSONObject != nil {
+        // handle response
+    }
+}
+```
 
 ## Close
 
@@ -59,13 +106,8 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Close(ctx, operations.CloseADeployRequestRequest{
-        RequestBody: &operations.CloseADeployRequestRequestBody{
-            State: operations.CloseADeployRequestRequestBodyStateEnumClosed.ToPointer(),
-        },
-        Database: "architecto",
-        Number: "architecto",
-        Organization: "repudiandae",
+    res, err := s.DeployRequests.Close(ctx, "delectus", "eum", "non", &operations.CloseADeployRequestRequestBody{
+        State: operations.CloseADeployRequestRequestBodyStateEnumClosed.ToPointer(),
     })
     if err != nil {
         log.Fatal(err)
@@ -113,11 +155,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.CompleteErroredDeploy(ctx, operations.CompleteAnErroredDeployRequest{
-        Database: "ullam",
-        Number: "expedita",
-        Organization: "nihil",
-    })
+    res, err := s.DeployRequests.CompleteErroredDeploy(ctx, "eligendi", "sint", "aliquid")
     if err != nil {
         log.Fatal(err)
     }
@@ -164,11 +202,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.CompleteGatedDeploy(ctx, operations.CompleteAGatedDeployRequestRequest{
-        Database: "repellat",
-        Number: "quibusdam",
-        Organization: "sed",
-    })
+    res, err := s.DeployRequests.CompleteGatedDeploy(ctx, "provident", "necessitatibus", "sint")
     if err != nil {
         log.Fatal(err)
     }
@@ -215,11 +249,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.CompleteRevert(ctx, operations.CompleteARevertRequest{
-        Database: "saepe",
-        Number: "pariatur",
-        Organization: "accusantium",
-    })
+    res, err := s.DeployRequests.CompleteRevert(ctx, "officia", "dolor", "debitis")
     if err != nil {
         log.Fatal(err)
     }
@@ -266,15 +296,11 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Create(ctx, operations.CreateADeployRequestRequest{
-        RequestBody: &operations.CreateADeployRequestRequestBody{
-            Branch: planetscale.String("consequuntur"),
-            IntoBranch: planetscale.String("praesentium"),
-            Notes: planetscale.String("natus"),
-            Number: planetscale.String("magni"),
-        },
-        Database: "sunt",
-        Organization: "quo",
+    res, err := s.DeployRequests.Create(ctx, "a", "dolorum", &operations.CreateADeployRequestRequestBody{
+        Branch: planetscale.String("in"),
+        IntoBranch: planetscale.String("in"),
+        Notes: planetscale.String("illum"),
+        Number: planetscale.String("maiores"),
     })
     if err != nil {
         log.Fatal(err)
@@ -322,11 +348,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Get(ctx, operations.GetADeployRequestRequest{
-        Database: "illum",
-        Number: "pariatur",
-        Organization: "maxime",
-    })
+    res, err := s.DeployRequests.Get(ctx, "rerum", "dicta", "magnam")
     if err != nil {
         log.Fatal(err)
     }
@@ -375,11 +397,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.GetDeployment(ctx, operations.GetADeploymentRequest{
-        Database: "ea",
-        Number: "excepturi",
-        Organization: "odit",
-    })
+    res, err := s.DeployRequests.GetDeployment(ctx, "cumque", "facere", "ea")
     if err != nil {
         log.Fatal(err)
     }
@@ -417,10 +435,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.GetQueue(ctx, operations.GetADeployQueueRequest{
-        Database: "ea",
-        Organization: "accusantium",
-    })
+    res, err := s.DeployRequests.GetQueue(ctx, "aliquid", "laborum")
     if err != nil {
         log.Fatal(err)
     }
@@ -469,12 +484,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.List(ctx, operations.ListDeployRequestsRequest{
-        Database: "ab",
-        Organization: "maiores",
-        Page: planetscale.Float64(6974.29),
-        PerPage: planetscale.Float64(3732.91),
-    })
+    res, err := s.DeployRequests.List(ctx, "accusamus", "non", 5812.73, 3132.18)
     if err != nil {
         log.Fatal(err)
     }
@@ -524,11 +534,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.DeployRequests.ListOperations(ctx, operations.ListDeployOperationsRequest{
-        Database: "voluptate",
-        Number: "autem",
-        Organization: "nam",
-        Page: planetscale.Float64(505.88),
-        PerPage: planetscale.Float64(8663.83),
+        Database: "accusamus",
+        Number: "delectus",
+        Organization: "quidem",
+        Page: planetscale.Float64(5884.65),
+        PerPage: planetscale.Float64(7252.55),
     })
     if err != nil {
         log.Fatal(err)
@@ -576,67 +586,12 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Queue(ctx, operations.QueueADeployRequestRequest{
-        Database: "nemo",
-        Number: "voluptatibus",
-        Organization: "perferendis",
-    })
+    res, err := s.DeployRequests.Queue(ctx, "id", "blanditiis", "deleniti")
     if err != nil {
         log.Fatal(err)
     }
 
     if res.QueueADeployRequest200ApplicationJSONObject != nil {
-        // handle response
-    }
-}
-```
-
-## Queue
-
-
-### Authorization
-A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
-
-**Service Token Accesses**
-  `read_deploy_request`, `create_deploy_request`
-
-**OAuth Scopes**
-
-  | Resource | Scopes |
-| :------- | :---------- |
-| Organization | `deploy_deploy_requests` |
-| Database | `deploy_deploy_requests` |
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	"log"
-	"github.com/speakeasy-sdks/planetscale"
-	"github.com/speakeasy-sdks/planetscale/pkg/models/operations"
-)
-
-func main() {
-    s := planetscale.New(
-        planetscale.WithSecurity(shared.Security{
-            APIKeyHeader: "YOUR_API_KEY_HERE",
-        }),
-    )
-
-    ctx := context.Background()
-    res, err := s.DeployRequests.Queue(ctx, operations.CancelAQueuedDeployRequestRequest{
-        Database: "fugiat",
-        Number: "amet",
-        Organization: "aut",
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.CancelAQueuedDeployRequest200ApplicationJSONObject != nil {
         // handle response
     }
 }
@@ -680,11 +635,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.SkipRevertPeriod(ctx, operations.SkipRevertPeriodRequest{
-        Database: "cumque",
-        Number: "corporis",
-        Organization: "hic",
-    })
+    res, err := s.DeployRequests.SkipRevertPeriod(ctx, "sapiente", "amet", "deserunt")
     if err != nil {
         log.Fatal(err)
     }
@@ -733,11 +684,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Update(ctx, operations.UpdateAutoApplyForDeployRequestRequest{
-        Database: "libero",
-        Number: "nobis",
-        Organization: "dolores",
-    })
+    res, err := s.DeployRequests.Update(ctx, "nisi", "vel", "natus")
     if err != nil {
         log.Fatal(err)
     }

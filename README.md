@@ -35,12 +35,9 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Databases.Create(ctx, operations.CreateADatabaseRequest{
-        RequestBody: &operations.CreateADatabaseRequestBody{
-            Name: "Terrence Rau",
-            Notes: planetscale.String("nulla"),
-        },
-        Organization: "corrupti",
+    res, err := s.Databases.Create(ctx, "corrupti", &operations.CreateADatabaseRequestBody{
+        Name: "Kelvin Sporer",
+        Notes: planetscale.String("corrupti"),
     })
     if err != nil {
         log.Fatal(err)
@@ -93,6 +90,7 @@ func main() {
 
 ### [DeployRequests](docs/deployrequests/README.md)
 
+* [Cancel](docs/deployrequests/README.md#cancel) - Cancel a queued deploy request
 * [Close](docs/deployrequests/README.md#close) - Close a deploy request
 * [CompleteErroredDeploy](docs/deployrequests/README.md#completeerroreddeploy) - Complete an errored deploy
 * [CompleteGatedDeploy](docs/deployrequests/README.md#completegateddeploy) - Complete a gated deploy request
@@ -104,7 +102,6 @@ func main() {
 * [List](docs/deployrequests/README.md#list) - List deploy requests
 * [ListOperations](docs/deployrequests/README.md#listoperations) - List deploy operations
 * [Queue](docs/deployrequests/README.md#queue) - Queue a deploy request
-* [Queue](docs/deployrequests/README.md#queue) - Cancel a queued deploy request
 * [SkipRevertPeriod](docs/deployrequests/README.md#skiprevertperiod) - Skip revert period
 * [Update](docs/deployrequests/README.md#update) - Update auto-apply for deploy request
 

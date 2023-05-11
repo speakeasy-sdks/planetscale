@@ -52,12 +52,9 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Databases.Create(ctx, operations.CreateADatabaseRequest{
-        RequestBody: &operations.CreateADatabaseRequestBody{
-            Name: "Sophia Wintheiser",
-            Notes: planetscale.String("nam"),
-        },
-        Organization: "id",
+    res, err := s.Databases.Create(ctx, "praesentium", &operations.CreateADatabaseRequestBody{
+        Name: "Grady Botsford",
+        Notes: planetscale.String("veritatis"),
     })
     if err != nil {
         log.Fatal(err)
@@ -105,10 +102,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Databases.Delete(ctx, operations.DeleteADatabaseRequest{
-        Name: "Jaime Will",
-        Organization: "nisi",
-    })
+    res, err := s.Databases.Delete(ctx, "itaque", "incidunt")
     if err != nil {
         log.Fatal(err)
     }
@@ -155,10 +149,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Databases.Get(ctx, operations.GetADatabaseRequest{
-        Name: "Ada Moen IV",
-        Organization: "magnam",
-    })
+    res, err := s.Databases.Get(ctx, "enim", "consequatur")
     if err != nil {
         log.Fatal(err)
     }
@@ -204,11 +195,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Databases.List(ctx, operations.ListDatabasesRequest{
-        Organization: "distinctio",
-        Page: planetscale.Float64(6601.74),
-        PerPage: planetscale.Float64(2879.91),
-    })
+    res, err := s.Databases.List(ctx, "est", 8423.42, 1317.97)
     if err != nil {
         log.Fatal(err)
     }
@@ -255,12 +242,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Databases.ListPromotionRequests(ctx, operations.ListDatabasePromotionRequestsRequest{
-        Name: "Laurie Mosciski",
-        Organization: "vero",
-        Page: planetscale.Float64(1354.74),
-        PerPage: planetscale.Float64(1028.63),
-    })
+    res, err := s.Databases.ListPromotionRequests(ctx, "deserunt", "distinctio", 8413.86, 2894.06)
     if err != nil {
         log.Fatal(err)
     }
@@ -309,12 +291,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Databases.ListReadOnlyRegions(ctx, operations.ListReadOnlyRegionsRequest{
-        Name: "Frances Marks",
-        Organization: "quos",
-        Page: planetscale.Float64(5743.25),
-        PerPage: planetscale.Float64(336.25),
-    })
+    res, err := s.Databases.ListReadOnlyRegions(ctx, "modi", "qui", 3978.21, 5865.13)
     if err != nil {
         log.Fatal(err)
     }
@@ -361,12 +338,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Databases.ListRegions(ctx, operations.ListDatabaseRegionsRequest{
-        Name: "Abel O'Hara",
-        Organization: "dolor",
-        Page: planetscale.Float64(8965.47),
-        PerPage: planetscale.Float64(1412.64),
-    })
+    res, err := s.Databases.ListRegions(ctx, "quos", "perferendis", 1649.4, 8289.4)
     if err != nil {
         log.Fatal(err)
     }
@@ -413,21 +385,17 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Databases.Update(ctx, operations.UpdateDatabaseSettingsRequest{
-        RequestBody: &operations.UpdateDatabaseSettingsRequestBody{
-            AllowDataBranching: planetscale.Bool(false),
-            AutomaticMigrations: planetscale.Bool(false),
-            DefaultBranch: planetscale.String("nemo"),
-            InsightsRawQueries: planetscale.Bool(false),
-            MigrationFramework: planetscale.String("quasi"),
-            MigrationTableName: planetscale.String("iure"),
-            Notes: planetscale.String("doloribus"),
-            ProductionBranchWebConsole: planetscale.Bool(false),
-            RequireApprovalForDeploy: planetscale.Bool(false),
-            RestrictBranchRegion: planetscale.Bool(false),
-        },
-        Name: "Frederick Schoen",
-        Organization: "in",
+    res, err := s.Databases.Update(ctx, "ipsam", "alias", &operations.UpdateDatabaseSettingsRequestBody{
+        AllowDataBranching: planetscale.Bool(false),
+        AutomaticMigrations: planetscale.Bool(false),
+        DefaultBranch: planetscale.String("fugit"),
+        InsightsRawQueries: planetscale.Bool(false),
+        MigrationFramework: planetscale.String("dolorum"),
+        MigrationTableName: planetscale.String("excepturi"),
+        Notes: planetscale.String("tempora"),
+        ProductionBranchWebConsole: planetscale.Bool(false),
+        RequireApprovalForDeploy: planetscale.Bool(false),
+        RestrictBranchRegion: planetscale.Bool(false),
     })
     if err != nil {
         log.Fatal(err)
