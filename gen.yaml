@@ -5,9 +5,9 @@ management:
   speakeasyVersion: 1.29.0
   generationVersion: 2.26.0
 generation:
-  telemetryEnabled: false
   sdkClassName: planetscale
   singleTagPerOp: false
+  telemetryEnabled: false
 go:
   version: 1.4.0
   maxMethodParams: 4
