@@ -14,9 +14,9 @@ type CreateADatabaseRequestBody struct {
 }
 
 type CreateADatabaseRequest struct {
-	RequestBody *CreateADatabaseRequestBody `request:"mediaType=application/json"`
 	// The name of the organization the database belongs to
-	Organization string `pathParam:"style=simple,explode=false,name=organization"`
+	Organization string                      `pathParam:"style=simple,explode=false,name=organization"`
+	RequestBody  *CreateADatabaseRequestBody `request:"mediaType=application/json"`
 }
 
 type CreateADatabaseResponse struct {

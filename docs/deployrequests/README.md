@@ -59,13 +59,8 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Close(ctx, operations.CloseADeployRequestRequest{
-        RequestBody: &operations.CloseADeployRequestRequestBody{
-            State: operations.CloseADeployRequestRequestBodyStateEnumClosed.ToPointer(),
-        },
-        Database: "architecto",
-        Number: "architecto",
-        Organization: "repudiandae",
+    res, err := s.DeployRequests.Close(ctx, "facilis", "tempore", "labore", &operations.CloseADeployRequestRequestBody{
+        State: operations.CloseADeployRequestRequestBodyStateEnumClosed.ToPointer(),
     })
     if err != nil {
         log.Fatal(err)
@@ -113,11 +108,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.CompleteErroredDeploy(ctx, operations.CompleteAnErroredDeployRequest{
-        Database: "ullam",
-        Number: "expedita",
-        Organization: "nihil",
-    })
+    res, err := s.DeployRequests.CompleteErroredDeploy(ctx, "delectus", "eum", "non")
     if err != nil {
         log.Fatal(err)
     }
@@ -164,11 +155,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.CompleteGatedDeploy(ctx, operations.CompleteAGatedDeployRequestRequest{
-        Database: "repellat",
-        Number: "quibusdam",
-        Organization: "sed",
-    })
+    res, err := s.DeployRequests.CompleteGatedDeploy(ctx, "eligendi", "sint", "aliquid")
     if err != nil {
         log.Fatal(err)
     }
@@ -215,11 +202,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.CompleteRevert(ctx, operations.CompleteARevertRequest{
-        Database: "saepe",
-        Number: "pariatur",
-        Organization: "accusantium",
-    })
+    res, err := s.DeployRequests.CompleteRevert(ctx, "provident", "necessitatibus", "sint")
     if err != nil {
         log.Fatal(err)
     }
@@ -266,15 +249,11 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Create(ctx, operations.CreateADeployRequestRequest{
-        RequestBody: &operations.CreateADeployRequestRequestBody{
-            Branch: planetscale.String("consequuntur"),
-            IntoBranch: planetscale.String("praesentium"),
-            Notes: planetscale.String("natus"),
-            Number: planetscale.String("magni"),
-        },
-        Database: "sunt",
-        Organization: "quo",
+    res, err := s.DeployRequests.Create(ctx, "officia", "dolor", &operations.CreateADeployRequestRequestBody{
+        Branch: planetscale.String("debitis"),
+        IntoBranch: planetscale.String("a"),
+        Notes: planetscale.String("dolorum"),
+        Number: planetscale.String("in"),
     })
     if err != nil {
         log.Fatal(err)
@@ -322,11 +301,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Get(ctx, operations.GetADeployRequestRequest{
-        Database: "illum",
-        Number: "pariatur",
-        Organization: "maxime",
-    })
+    res, err := s.DeployRequests.Get(ctx, "in", "illum", "maiores")
     if err != nil {
         log.Fatal(err)
     }
@@ -375,11 +350,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.GetDeployment(ctx, operations.GetADeploymentRequest{
-        Database: "ea",
-        Number: "excepturi",
-        Organization: "odit",
-    })
+    res, err := s.DeployRequests.GetDeployment(ctx, "rerum", "dicta", "magnam")
     if err != nil {
         log.Fatal(err)
     }
@@ -417,10 +388,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.GetQueue(ctx, operations.GetADeployQueueRequest{
-        Database: "ea",
-        Organization: "accusantium",
-    })
+    res, err := s.DeployRequests.GetQueue(ctx, "cumque", "facere")
     if err != nil {
         log.Fatal(err)
     }
@@ -469,12 +437,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.List(ctx, operations.ListDeployRequestsRequest{
-        Database: "ab",
-        Organization: "maiores",
-        Page: planetscale.Float64(6974.29),
-        PerPage: planetscale.Float64(3732.91),
-    })
+    res, err := s.DeployRequests.List(ctx, "ea", "aliquid", 6754.39, 8811.04)
     if err != nil {
         log.Fatal(err)
     }
@@ -524,11 +487,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.DeployRequests.ListOperations(ctx, operations.ListDeployOperationsRequest{
-        Database: "voluptate",
-        Number: "autem",
-        Organization: "nam",
-        Page: planetscale.Float64(505.88),
-        PerPage: planetscale.Float64(8663.83),
+        Database: "non",
+        Number: "occaecati",
+        Organization: "enim",
+        Page: planetscale.Float64(8817.36),
+        PerPage: planetscale.Float64(9654.17),
     })
     if err != nil {
         log.Fatal(err)
@@ -576,11 +539,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Queue(ctx, operations.QueueADeployRequestRequest{
-        Database: "nemo",
-        Number: "voluptatibus",
-        Organization: "perferendis",
-    })
+    res, err := s.DeployRequests.Queue(ctx, "quidem", "provident", "nam")
     if err != nil {
         log.Fatal(err)
     }
@@ -627,11 +586,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Queue(ctx, operations.CancelAQueuedDeployRequestRequest{
-        Database: "fugiat",
-        Number: "amet",
-        Organization: "aut",
-    })
+    res, err := s.DeployRequests.Queue(ctx, "id", "blanditiis", "deleniti")
     if err != nil {
         log.Fatal(err)
     }
@@ -680,11 +635,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.SkipRevertPeriod(ctx, operations.SkipRevertPeriodRequest{
-        Database: "cumque",
-        Number: "corporis",
-        Organization: "hic",
-    })
+    res, err := s.DeployRequests.SkipRevertPeriod(ctx, "sapiente", "amet", "deserunt")
     if err != nil {
         log.Fatal(err)
     }
@@ -733,11 +684,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.DeployRequests.Update(ctx, operations.UpdateAutoApplyForDeployRequestRequest{
-        Database: "libero",
-        Number: "nobis",
-        Organization: "dolores",
-    })
+    res, err := s.DeployRequests.Update(ctx, "nisi", "vel", "natus")
     if err != nil {
         log.Fatal(err)
     }

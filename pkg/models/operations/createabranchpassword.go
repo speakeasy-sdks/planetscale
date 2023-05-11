@@ -52,13 +52,13 @@ type CreateABranchPasswordRequestBody struct {
 }
 
 type CreateABranchPasswordRequest struct {
-	RequestBody *CreateABranchPasswordRequestBody `request:"mediaType=application/json"`
 	// The name of the branch the password belongs to
 	Branch string `pathParam:"style=simple,explode=false,name=branch"`
 	// The name of the database the password belongs to
 	Database string `pathParam:"style=simple,explode=false,name=database"`
 	// The name of the organization the password belongs to
-	Organization string `pathParam:"style=simple,explode=false,name=organization"`
+	Organization string                            `pathParam:"style=simple,explode=false,name=organization"`
+	RequestBody  *CreateABranchPasswordRequestBody `request:"mediaType=application/json"`
 }
 
 type CreateABranchPasswordResponse struct {

@@ -16,11 +16,11 @@ type CreateABranchRequestBody struct {
 }
 
 type CreateABranchRequest struct {
-	RequestBody *CreateABranchRequestBody `request:"mediaType=application/json"`
 	// The name of the database the branch belongs to
 	Database string `pathParam:"style=simple,explode=false,name=database"`
 	// The name of the organization the branch belongs to
-	Organization string `pathParam:"style=simple,explode=false,name=organization"`
+	Organization string                    `pathParam:"style=simple,explode=false,name=organization"`
+	RequestBody  *CreateABranchRequestBody `request:"mediaType=application/json"`
 }
 
 type CreateABranchResponse struct {

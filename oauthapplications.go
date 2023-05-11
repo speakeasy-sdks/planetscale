@@ -38,11 +38,15 @@ func newOAuthApplications(defaultClient, securityClient HTTPClient, serverURL, l
 // A service token   must have the following access   in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `delete_oauth_tokens`
 //
-//
+//	`delete_oauth_tokens`
+func (s *oAuthApplications) Delete(ctx context.Context, applicationID string, organization string, tokenID string) (*operations.DeleteAnOauthTokenResponse, error) {
+	request := operations.DeleteAnOauthTokenRequest{
+		ApplicationID: applicationID,
+		Organization:  organization,
+		TokenID:       tokenID,
+	}
 
-func (s *oAuthApplications) Delete(ctx context.Context, request operations.DeleteAnOauthTokenRequest) (*operations.DeleteAnOauthTokenResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/oauth-applications/{application_id}/tokens/{token_id}", request, nil)
 	if err != nil {
@@ -91,11 +95,14 @@ func (s *oAuthApplications) Delete(ctx context.Context, request operations.Delet
 // A service token   must have the following access   in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `read_oauth_applications`
 //
-//
+//	`read_oauth_applications`
+func (s *oAuthApplications) Get(ctx context.Context, applicationID string, organization string) (*operations.GetAnOauthApplicationResponse, error) {
+	request := operations.GetAnOauthApplicationRequest{
+		ApplicationID: applicationID,
+		Organization:  organization,
+	}
 
-func (s *oAuthApplications) Get(ctx context.Context, request operations.GetAnOauthApplicationRequest) (*operations.GetAnOauthApplicationResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/oauth-applications/{application_id}", request, nil)
 	if err != nil {
@@ -152,11 +159,15 @@ func (s *oAuthApplications) Get(ctx context.Context, request operations.GetAnOau
 // A service token   must have the following access   in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `read_oauth_tokens`
 //
-//
+//	`read_oauth_tokens`
+func (s *oAuthApplications) GetToken(ctx context.Context, applicationID string, organization string, tokenID string) (*operations.GetAnOauthTokenResponse, error) {
+	request := operations.GetAnOauthTokenRequest{
+		ApplicationID: applicationID,
+		Organization:  organization,
+		TokenID:       tokenID,
+	}
 
-func (s *oAuthApplications) GetToken(ctx context.Context, request operations.GetAnOauthTokenRequest) (*operations.GetAnOauthTokenResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/oauth-applications/{application_id}/tokens/{token_id}", request, nil)
 	if err != nil {
@@ -213,11 +224,15 @@ func (s *oAuthApplications) GetToken(ctx context.Context, request operations.Get
 // A service token   must have the following access   in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `read_oauth_applications`
 //
-//
+//	`read_oauth_applications`
+func (s *oAuthApplications) List(ctx context.Context, organization string, page *float64, perPage *float64) (*operations.ListOauthApplicationsResponse, error) {
+	request := operations.ListOauthApplicationsRequest{
+		Organization: organization,
+		Page:         page,
+		PerPage:      perPage,
+	}
 
-func (s *oAuthApplications) List(ctx context.Context, request operations.ListOauthApplicationsRequest) (*operations.ListOauthApplicationsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/oauth-applications", request, nil)
 	if err != nil {
@@ -280,11 +295,16 @@ func (s *oAuthApplications) List(ctx context.Context, request operations.ListOau
 // A service token   must have the following access   in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `read_oauth_tokens`
 //
-//
+//	`read_oauth_tokens`
+func (s *oAuthApplications) ListTokens(ctx context.Context, applicationID string, organization string, page *float64, perPage *float64) (*operations.ListOauthTokensResponse, error) {
+	request := operations.ListOauthTokensRequest{
+		ApplicationID: applicationID,
+		Organization:  organization,
+		Page:          page,
+		PerPage:       perPage,
+	}
 
-func (s *oAuthApplications) ListTokens(ctx context.Context, request operations.ListOauthTokensRequest) (*operations.ListOauthTokensResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/oauth-applications/{application_id}/tokens", request, nil)
 	if err != nil {

@@ -52,11 +52,11 @@ type CreateOrRenewAnOauthTokenRequestBody struct {
 }
 
 type CreateOrRenewAnOauthTokenRequest struct {
-	RequestBody *CreateOrRenewAnOauthTokenRequestBody `request:"mediaType=application/json"`
 	// The ID of the OAuth application
 	ID string `pathParam:"style=simple,explode=false,name=id"`
 	// The name of the organization the OAuth application belongs to
-	Organization string `pathParam:"style=simple,explode=false,name=organization"`
+	Organization string                                `pathParam:"style=simple,explode=false,name=organization"`
+	RequestBody  *CreateOrRenewAnOauthTokenRequestBody `request:"mediaType=application/json"`
 }
 
 type CreateOrRenewAnOauthTokenResponse struct {

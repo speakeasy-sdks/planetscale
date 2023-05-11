@@ -14,9 +14,9 @@ type UpdateAnOrganizationRequestBody struct {
 }
 
 type UpdateAnOrganizationRequest struct {
-	RequestBody *UpdateAnOrganizationRequestBody `request:"mediaType=application/json"`
 	// The name of the organization
-	Name string `pathParam:"style=simple,explode=false,name=name"`
+	Name        string                           `pathParam:"style=simple,explode=false,name=name"`
+	RequestBody *UpdateAnOrganizationRequestBody `request:"mediaType=application/json"`
 }
 
 type UpdateAnOrganizationResponse struct {

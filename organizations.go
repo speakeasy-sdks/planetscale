@@ -40,12 +40,16 @@ func newOrganizations(defaultClient, securityClient HTTPClient, serverURL, langu
 //
 // **OAuth Scopes**
 //
-//   | Resource | Scopes |
+//	| Resource | Scopes |
+//
 // | :------- | :---------- |
 // | User | `read_organizations` |
 // | Organization | `read_organization` |
+func (s *organizations) Get(ctx context.Context, name string) (*operations.GetAnOrganizationResponse, error) {
+	request := operations.GetAnOrganizationRequest{
+		Name: name,
+	}
 
-func (s *organizations) Get(ctx context.Context, request operations.GetAnOrganizationRequest) (*operations.GetAnOrganizationResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{name}", request, nil)
 	if err != nil {
@@ -103,11 +107,16 @@ func (s *organizations) Get(ctx context.Context, request operations.GetAnOrganiz
 //
 // **OAuth Scopes**
 //
-//   | Resource | Scopes |
+//	| Resource | Scopes |
+//
 // | :------- | :---------- |
 // | User | `read_organizations` |
+func (s *organizations) List(ctx context.Context, page *float64, perPage *float64) (*operations.ListOrganizationsResponse, error) {
+	request := operations.ListOrganizationsRequest{
+		Page:    page,
+		PerPage: perPage,
+	}
 
-func (s *organizations) List(ctx context.Context, request operations.ListOrganizationsRequest) (*operations.ListOrganizationsResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/organizations"
 
@@ -166,12 +175,18 @@ func (s *organizations) List(ctx context.Context, request operations.ListOrganiz
 //
 // **OAuth Scopes**
 //
-//   | Resource | Scopes |
+//	| Resource | Scopes |
+//
 // | :------- | :---------- |
 // | User | `read_organizations` |
 // | Organization | `read_organization` |
+func (s *organizations) ListRegions(ctx context.Context, name string, page *float64, perPage *float64) (*operations.ListRegionsForAnOrganizationResponse, error) {
+	request := operations.ListRegionsForAnOrganizationRequest{
+		Name:    name,
+		Page:    page,
+		PerPage: perPage,
+	}
 
-func (s *organizations) ListRegions(ctx context.Context, request operations.ListRegionsForAnOrganizationRequest) (*operations.ListRegionsForAnOrganizationResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{name}/region", request, nil)
 	if err != nil {
@@ -233,11 +248,16 @@ func (s *organizations) ListRegions(ctx context.Context, request operations.List
 //
 // **OAuth Scopes**
 //
-//   | Resource | Scopes |
+//	| Resource | Scopes |
+//
 // | :------- | :---------- |
 // | Organization | `write_organization` |
+func (s *organizations) Update(ctx context.Context, name string, requestBody *operations.UpdateAnOrganizationRequestBody) (*operations.UpdateAnOrganizationResponse, error) {
+	request := operations.UpdateAnOrganizationRequest{
+		Name:        name,
+		RequestBody: requestBody,
+	}
 
-func (s *organizations) Update(ctx context.Context, request operations.UpdateAnOrganizationRequest) (*operations.UpdateAnOrganizationResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{name}", request, nil)
 	if err != nil {

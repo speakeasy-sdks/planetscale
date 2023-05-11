@@ -58,11 +58,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.CancelDemotionRequest(ctx, operations.CancelOrDenyADemotionRequestRequest{
-        Database: "harum",
-        Name: "Sophia Jerde I",
-        Organization: "quidem",
-    })
+    res, err := s.Branches.CancelDemotionRequest(ctx, "tenetur", "ipsam", "id")
     if err != nil {
         log.Fatal(err)
     }
@@ -109,14 +105,10 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.Create(ctx, operations.CreateABranchRequest{
-        RequestBody: &operations.CreateABranchRequestBody{
-            BackupID: planetscale.String("molestias"),
-            Name: "Ervin Gleason",
-            ParentBranch: "voluptates",
-        },
-        Database: "quasi",
-        Organization: "repudiandae",
+    res, err := s.Branches.Create(ctx, "possimus", "aut", &operations.CreateABranchRequestBody{
+        BackupID: planetscale.String("quasi"),
+        Name: "Dr. Jake Pacocha",
+        ParentBranch: "vero",
     })
     if err != nil {
         log.Fatal(err)
@@ -164,11 +156,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.CreatePromotionRequest(ctx, operations.CreateAPromotionRequestRequest{
-        Database: "sint",
-        Name: "Patti Gottlieb MD",
-        Organization: "quibusdam",
-    })
+    res, err := s.Branches.CreatePromotionRequest(ctx, "nihil", "praesentium", "voluptatibus")
     if err != nil {
         log.Fatal(err)
     }
@@ -216,11 +204,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.Delete(ctx, operations.DeleteABranchRequest{
-        Database: "explicabo",
-        Name: "Rudy Spencer",
-        Organization: "qui",
-    })
+    res, err := s.Branches.Delete(ctx, "ipsa", "omnis", "voluptate")
     if err != nil {
         log.Fatal(err)
     }
@@ -266,11 +250,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.Demote(ctx, operations.DemoteABranchRequest{
-        Database: 3978.21,
-        Name: 5865.13,
-        Organization: 5528.22,
-    })
+    res, err := s.Branches.Demote(ctx, 7392.64, 199.87, 391.87)
     if err != nil {
         log.Fatal(err)
     }
@@ -318,11 +298,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.Get(ctx, operations.GetABranchRequest{
-        Database: "perferendis",
-        Name: "Mr. Nadine Hills",
-        Organization: "excepturi",
-    })
+    res, err := s.Branches.Get(ctx, "reprehenderit", "ut", "maiores")
     if err != nil {
         log.Fatal(err)
     }
@@ -370,11 +346,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.GetDemotionRequest(ctx, operations.GetADemotionRequestRequest{
-        Database: "tempora",
-        Name: "Geoffrey Green",
-        Organization: "non",
-    })
+    res, err := s.Branches.GetDemotionRequest(ctx, "dicta", "corporis", "dolore")
     if err != nil {
         log.Fatal(err)
     }
@@ -421,11 +393,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.GetPromotionRequest(ctx, operations.GetAPromotionRequestRequest{
-        Database: "eligendi",
-        Name: "Gilbert Medhurst",
-        Organization: "officia",
-    })
+    res, err := s.Branches.GetPromotionRequest(ctx, "iusto", "dicta", "harum")
     if err != nil {
         log.Fatal(err)
     }
@@ -473,12 +441,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.GetSchema(ctx, operations.GetABranchSchemaRequest{
-        Database: "dolor",
-        Keyspace: planetscale.String("debitis"),
-        Name: "Wilbur King",
-        Organization: "maiores",
-    })
+    res, err := s.Branches.GetSchema(ctx, "enim", "accusamus", "commodi", "repudiandae")
     if err != nil {
         log.Fatal(err)
     }
@@ -526,11 +489,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.GetStatus(ctx, operations.GetBranchStatusRequest{
-        Database: "rerum",
-        Name: "Valerie Runolfsson",
-        Organization: "aliquid",
-    })
+    res, err := s.Branches.GetStatus(ctx, "quae", "ipsum", "quidem")
     if err != nil {
         log.Fatal(err)
     }
@@ -578,12 +537,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Branches.List(ctx, operations.ListBranchesRequest{
-        Database: "laborum",
-        Organization: "accusamus",
-        Page: planetscale.Float64(2497.96),
-        PerPage: planetscale.Float64(5812.73),
-    })
+    res, err := s.Branches.List(ctx, "molestias", "excepturi", 8651.03, 2653.89)
     if err != nil {
         log.Fatal(err)
     }
