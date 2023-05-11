@@ -45,11 +45,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.OAuthApplications.Delete(ctx, operations.DeleteAnOauthTokenRequest{
-        ApplicationID: "quis",
-        Organization: "totam",
-        TokenID: "dignissimos",
-    })
+    res, err := s.OAuthApplications.Delete(ctx, "omnis", "molestiae", "perferendis")
     if err != nil {
         log.Fatal(err)
     }
@@ -91,10 +87,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.OAuthApplications.Get(ctx, operations.GetAnOauthApplicationRequest{
-        ApplicationID: "eaque",
-        Organization: "quis",
-    })
+    res, err := s.OAuthApplications.Get(ctx, "nihil", "magnam")
     if err != nil {
         log.Fatal(err)
     }
@@ -136,11 +129,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.OAuthApplications.GetToken(ctx, operations.GetAnOauthTokenRequest{
-        ApplicationID: "nesciunt",
-        Organization: "eos",
-        TokenID: "perferendis",
-    })
+    res, err := s.OAuthApplications.GetToken(ctx, "distinctio", "id", "labore")
     if err != nil {
         log.Fatal(err)
     }
@@ -182,11 +171,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.OAuthApplications.List(ctx, operations.ListOauthApplicationsRequest{
-        Organization: "dolores",
-        Page: planetscale.Float64(7936.98),
-        PerPage: planetscale.Float64(4634.51),
-    })
+    res, err := s.OAuthApplications.List(ctx, "labore", 3834.62, 6180.16)
     if err != nil {
         log.Fatal(err)
     }
@@ -230,12 +215,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.OAuthApplications.ListTokens(ctx, operations.ListOauthTokensRequest{
-        ApplicationID: "dolor",
-        Organization: "vero",
-        Page: planetscale.Float64(3453.52),
-        PerPage: planetscale.Float64(9441.2),
-    })
+    res, err := s.OAuthApplications.ListTokens(ctx, "nobis", "eum", 8784.53, 1354.74)
     if err != nil {
         log.Fatal(err)
     }

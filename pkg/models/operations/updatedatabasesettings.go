@@ -30,11 +30,11 @@ type UpdateDatabaseSettingsRequestBody struct {
 }
 
 type UpdateDatabaseSettingsRequest struct {
-	RequestBody *UpdateDatabaseSettingsRequestBody `request:"mediaType=application/json"`
 	// The name of the database
 	Name string `pathParam:"style=simple,explode=false,name=name"`
 	// The name of the organization the database belongs to
-	Organization string `pathParam:"style=simple,explode=false,name=organization"`
+	Organization string                             `pathParam:"style=simple,explode=false,name=organization"`
+	RequestBody  *UpdateDatabaseSettingsRequestBody `request:"mediaType=application/json"`
 }
 
 type UpdateDatabaseSettingsResponse struct {

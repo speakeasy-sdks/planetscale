@@ -18,11 +18,11 @@ type CreateADeployRequestRequestBody struct {
 }
 
 type CreateADeployRequestRequest struct {
-	RequestBody *CreateADeployRequestRequestBody `request:"mediaType=application/json"`
 	// The name of the deploy request's database
 	Database string `pathParam:"style=simple,explode=false,name=database"`
 	// The name of the deploy request's organization
-	Organization string `pathParam:"style=simple,explode=false,name=organization"`
+	Organization string                           `pathParam:"style=simple,explode=false,name=organization"`
+	RequestBody  *CreateADeployRequestRequestBody `request:"mediaType=application/json"`
 }
 
 type CreateADeployRequestResponse struct {

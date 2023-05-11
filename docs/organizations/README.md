@@ -46,9 +46,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Organizations.Get(ctx, operations.GetAnOrganizationRequest{
-        Name: "Mr. Lee Funk III",
-    })
+    res, err := s.Organizations.Get(ctx, "accusantium")
     if err != nil {
         log.Fatal(err)
     }
@@ -91,10 +89,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Organizations.List(ctx, operations.ListOrganizationsRequest{
-        Page: planetscale.Float64(4878.38),
-        PerPage: planetscale.Float64(3117.96),
-    })
+    res, err := s.Organizations.List(ctx, 6532.01, 9689.62)
     if err != nil {
         log.Fatal(err)
     }
@@ -138,11 +133,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Organizations.ListRegions(ctx, operations.ListRegionsForAnOrganizationRequest{
-        Name: "Rickey Wolf",
-        Page: planetscale.Float64(1796.03),
-        PerPage: planetscale.Float64(5424.99),
-    })
+    res, err := s.Organizations.ListRegions(ctx, "mollitia", 3209.97, 4314.18)
     if err != nil {
         log.Fatal(err)
     }
@@ -185,12 +176,9 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Organizations.Update(ctx, operations.UpdateAnOrganizationRequest{
-        RequestBody: &operations.UpdateAnOrganizationRequestBody{
-            BillingEmail: planetscale.String("sit"),
-            RequireAdminForProductionAccess: planetscale.Bool(false),
-        },
-        Name: "Stephen Roberts",
+    res, err := s.Organizations.Update(ctx, "dolor", &operations.UpdateAnOrganizationRequestBody{
+        BillingEmail: planetscale.String("necessitatibus"),
+        RequireAdminForProductionAccess: planetscale.Bool(false),
     })
     if err != nil {
         log.Fatal(err)
