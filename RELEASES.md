@@ -55,3 +55,11 @@ Based on:
 - Speakeasy CLI 1.29.0 (2.26.0) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [Go v1.4.0] https://github.com/speakeasy-sdks/planetscale-go/releases/tag/v1.4.0 - .
+
+## 2023-05-11 01:19:40
+### Changes
+Based on:
+- OpenAPI Doc v1 
+- Speakeasy CLI 1.30.0 (2.26.3) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [Go v1.4.1] https://github.com/speakeasy-sdks/planetscale-go/releases/tag/v1.4.1 - .

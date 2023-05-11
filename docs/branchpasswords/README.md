@@ -52,15 +52,10 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.BranchPasswords.Create(ctx, operations.CreateABranchPasswordRequest{
-        RequestBody: &operations.CreateABranchPasswordRequestBody{
-            ReadOnlyRegionID: planetscale.String("illum"),
-            Role: operations.CreateABranchPasswordRequestBodyRoleEnumWriter.ToPointer(),
-            TTL: planetscale.Float64(6235.64),
-        },
-        Branch: "deserunt",
-        Database: "suscipit",
-        Organization: "iure",
+    res, err := s.BranchPasswords.Create(ctx, "illum", "vel", "error", &operations.CreateABranchPasswordRequestBody{
+        ReadOnlyRegionID: planetscale.String("deserunt"),
+        Role: operations.CreateABranchPasswordRequestBodyRoleEnumWriter.ToPointer(),
+        TTL: planetscale.Float64(4375.87),
     })
     if err != nil {
         log.Fatal(err)
@@ -109,12 +104,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.BranchPasswords.Delete(ctx, operations.DeleteABranchPasswordRequest{
-        Branch: "magnam",
-        Database: "debitis",
-        ID: "0f467cc8-796e-4d15-9a05-dfc2ddf7cc78",
-        Organization: "porro",
-    })
+    res, err := s.BranchPasswords.Delete(ctx, "magnam", "debitis", "ipsa", "delectus")
     if err != nil {
         log.Fatal(err)
     }
@@ -163,11 +153,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.BranchPasswords.Get(ctx, operations.GetABranchPasswordRequest{
-        Branch: "dolorum",
-        Database: "dicta",
-        ID: "ba928fc8-1674-42cb-b392-05929396fea7",
-        Organization: "corporis",
-        ReadOnlyRegionID: planetscale.String("iste"),
+        Branch: "tempora",
+        Database: "suscipit",
+        ID: "7cc8796e-d151-4a05-9fc2-ddf7cc78ca1b",
+        Organization: "officia",
+        ReadOnlyRegionID: planetscale.String("occaecati"),
     })
     if err != nil {
         log.Fatal(err)
@@ -217,12 +207,12 @@ func main() {
 
     ctx := context.Background()
     res, err := s.BranchPasswords.List(ctx, operations.ListBranchPasswordsRequest{
-        Branch: "iure",
-        Database: "saepe",
-        Organization: "quidem",
-        Page: planetscale.Float64(992.8),
-        PerPage: planetscale.Float64(602.25),
-        ReadOnlyRegionID: planetscale.String("reiciendis"),
+        Branch: "fugit",
+        Database: "deleniti",
+        Organization: "hic",
+        Page: planetscale.Float64(7586.16),
+        PerPage: planetscale.Float64(5218.48),
+        ReadOnlyRegionID: planetscale.String("beatae"),
     })
     if err != nil {
         log.Fatal(err)
@@ -273,12 +263,12 @@ func main() {
     ctx := context.Background()
     res, err := s.BranchPasswords.Renew(ctx, operations.RenewABranchPasswordRequest{
         RequestBody: &operations.RenewABranchPasswordRequestBody{
-            ReadOnlyRegionID: planetscale.String("est"),
+            ReadOnlyRegionID: planetscale.String("commodi"),
         },
-        Branch: "mollitia",
-        Database: "laborum",
-        ID: "2352c595-5907-4aff-9a3a-2fa946773925",
-        Organization: "vitae",
+        Branch: "molestiae",
+        Database: "modi",
+        ID: "2cb73920-5929-4396-bea7-596eb10faaa2",
+        Organization: "dolorem",
     })
     if err != nil {
         log.Fatal(err)
@@ -329,13 +319,13 @@ func main() {
     ctx := context.Background()
     res, err := s.BranchPasswords.Update(ctx, operations.UpdateABranchPasswordRequest{
         RequestBody: &operations.UpdateABranchPasswordRequestBody{
-            DisplayName: "laborum",
-            ReadOnlyRegionID: planetscale.String("animi"),
+            DisplayName: "corporis",
+            ReadOnlyRegionID: planetscale.String("explicabo"),
         },
-        Branch: "enim",
-        Database: "odit",
-        ID: "c3f5ad01-9da1-4ffe-b8f0-97b0074f1547",
-        Organization: "dicta",
+        Branch: "nobis",
+        Database: "enim",
+        ID: "955907af-f1a3-4a2f-a946-7739251aa52c",
+        Organization: "sequi",
     })
     if err != nil {
         log.Fatal(err)

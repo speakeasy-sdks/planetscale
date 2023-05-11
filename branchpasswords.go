@@ -38,17 +38,25 @@ func newBranchPasswords(defaultClient, securityClient HTTPClient, serverURL, lan
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `connect_production_branch`, `create_branch_password`
+//
+//	`connect_production_branch`, `create_branch_password`
 //
 // **OAuth Scopes**
 //
-//   | Resource | Scopes |
+//	| Resource | Scopes |
+//
 // | :------- | :---------- |
 // | Organization | `manage_passwords` |
 // | Database | `manage_passwords` |
 // | Branch | `manage_passwords` |
+func (s *branchPasswords) Create(ctx context.Context, branch string, database string, organization string, requestBody *operations.CreateABranchPasswordRequestBody) (*operations.CreateABranchPasswordResponse, error) {
+	request := operations.CreateABranchPasswordRequest{
+		Branch:       branch,
+		Database:     database,
+		Organization: organization,
+		RequestBody:  requestBody,
+	}
 
-func (s *branchPasswords) Create(ctx context.Context, request operations.CreateABranchPasswordRequest) (*operations.CreateABranchPasswordResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{branch}/passwords", request, nil)
 	if err != nil {
@@ -112,17 +120,25 @@ func (s *branchPasswords) Create(ctx context.Context, request operations.CreateA
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `delete_production_branch_password`, `delete_branch_password`
+//
+//	`delete_production_branch_password`, `delete_branch_password`
 //
 // **OAuth Scopes**
 //
-//   | Resource | Scopes |
+//	| Resource | Scopes |
+//
 // | :------- | :---------- |
 // | Organization | `manage_passwords`, `manage_production_branch_passwords` |
 // | Database | `manage_passwords`, `manage_production_branch_passwords` |
 // | Branch | `manage_passwords` |
+func (s *branchPasswords) Delete(ctx context.Context, branch string, database string, id string, organization string) (*operations.DeleteABranchPasswordResponse, error) {
+	request := operations.DeleteABranchPasswordRequest{
+		Branch:       branch,
+		Database:     database,
+		ID:           id,
+		Organization: organization,
+	}
 
-func (s *branchPasswords) Delete(ctx context.Context, request operations.DeleteABranchPasswordRequest) (*operations.DeleteABranchPasswordResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{branch}/passwords/{id}", request, nil)
 	if err != nil {
@@ -171,16 +187,17 @@ func (s *branchPasswords) Delete(ctx context.Context, request operations.DeleteA
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
+//
+//	`read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
 //
 // **OAuth Scopes**
 //
-//   | Resource | Scopes |
+//	| Resource | Scopes |
+//
 // | :------- | :---------- |
 // | Organization | `manage_passwords` |
 // | Database | `manage_passwords` |
 // | Branch | `manage_passwords` |
-
 func (s *branchPasswords) Get(ctx context.Context, request operations.GetABranchPasswordRequest) (*operations.GetABranchPasswordResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{branch}/passwords/{id}", request, nil)
@@ -242,16 +259,17 @@ func (s *branchPasswords) Get(ctx context.Context, request operations.GetABranch
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
+//
+//	`read_branch`, `delete_branch`, `create_branch`, `connect_production_branch`, `connect_branch`
 //
 // **OAuth Scopes**
 //
-//   | Resource | Scopes |
+//	| Resource | Scopes |
+//
 // | :------- | :---------- |
 // | Organization | `manage_passwords` |
 // | Database | `manage_passwords` |
 // | Branch | `manage_passwords` |
-
 func (s *branchPasswords) List(ctx context.Context, request operations.ListBranchPasswordsRequest) (*operations.ListBranchPasswordsResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{branch}/passwords", request, nil)
@@ -313,16 +331,17 @@ func (s *branchPasswords) List(ctx context.Context, request operations.ListBranc
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `connect_production_branch`, `create_branch_password`
+//
+//	`connect_production_branch`, `create_branch_password`
 //
 // **OAuth Scopes**
 //
-//   | Resource | Scopes |
+//	| Resource | Scopes |
+//
 // | :------- | :---------- |
 // | Organization | `manage_passwords` |
 // | Database | `manage_passwords` |
 // | Branch | `manage_passwords` |
-
 func (s *branchPasswords) Renew(ctx context.Context, request operations.RenewABranchPasswordRequest) (*operations.RenewABranchPasswordResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{branch}/passwords/{id}/renew", request, nil)
@@ -387,16 +406,17 @@ func (s *branchPasswords) Renew(ctx context.Context, request operations.RenewABr
 // A service token or OAuth token must have the following access or scopes in order to use this API endpoint:
 //
 // **Service Token Accesses**
-//   `connect_production_branch`, `create_branch_password`
+//
+//	`connect_production_branch`, `create_branch_password`
 //
 // **OAuth Scopes**
 //
-//   | Resource | Scopes |
+//	| Resource | Scopes |
+//
 // | :------- | :---------- |
 // | Organization | `manage_passwords` |
 // | Database | `manage_passwords` |
 // | Branch | `manage_passwords` |
-
 func (s *branchPasswords) Update(ctx context.Context, request operations.UpdateABranchPasswordRequest) (*operations.UpdateABranchPasswordResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/organizations/{organization}/databases/{database}/branches/{branch}/passwords/{id}", request, nil)
