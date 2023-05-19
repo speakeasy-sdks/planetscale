@@ -54,7 +54,7 @@ func main() {
     ctx := context.Background()
     res, err := s.BranchPasswords.Create(ctx, "illum", "vel", "error", &operations.CreateABranchPasswordRequestBody{
         ReadOnlyRegionID: planetscale.String("deserunt"),
-        Role: operations.CreateABranchPasswordRequestBodyRoleEnumWriter.ToPointer(),
+        Role: operations.CreateABranchPasswordRequestBodyRoleWriter.ToPointer(),
         TTL: planetscale.Float64(4375.87),
     })
     if err != nil {

@@ -65,6 +65,8 @@ func (s *deployRequests) Cancel(ctx context.Context, database string, number str
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	client := s.securityClient
 
@@ -139,6 +141,8 @@ func (s *deployRequests) Close(ctx context.Context, database string, number stri
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	req.Header.Set("Content-Type", reqContentType)
 
@@ -209,6 +213,8 @@ func (s *deployRequests) CompleteErroredDeploy(ctx context.Context, database str
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	client := s.securityClient
 
@@ -277,6 +283,8 @@ func (s *deployRequests) CompleteGatedDeploy(ctx context.Context, database strin
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	client := s.securityClient
 
@@ -345,6 +353,8 @@ func (s *deployRequests) CompleteRevert(ctx context.Context, database string, nu
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	client := s.securityClient
 
@@ -418,6 +428,8 @@ func (s *deployRequests) Create(ctx context.Context, database string, organizati
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	req.Header.Set("Content-Type", reqContentType)
 
@@ -488,6 +500,8 @@ func (s *deployRequests) Get(ctx context.Context, database string, number string
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	client := s.securityClient
 
@@ -558,6 +572,8 @@ func (s *deployRequests) GetDeployment(ctx context.Context, database string, num
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	client := s.securityClient
 
@@ -612,6 +628,8 @@ func (s *deployRequests) GetQueue(ctx context.Context, database string, organiza
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	client := s.securityClient
 
@@ -683,6 +701,8 @@ func (s *deployRequests) List(ctx context.Context, database string, organization
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -751,6 +771,8 @@ func (s *deployRequests) ListOperations(ctx context.Context, request operations.
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -823,6 +845,8 @@ func (s *deployRequests) Queue(ctx context.Context, database string, number stri
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	client := s.securityClient
 
@@ -893,6 +917,8 @@ func (s *deployRequests) SkipRevertPeriod(ctx context.Context, database string, 
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	client := s.securityClient
 
@@ -963,6 +989,8 @@ func (s *deployRequests) Update(ctx context.Context, database string, number str
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
 	client := s.securityClient
 

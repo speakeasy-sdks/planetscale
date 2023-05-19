@@ -8,34 +8,34 @@ import (
 	"net/http"
 )
 
-// CloseADeployRequestRequestBodyStateEnum - The deploy request will be updated to this state
-type CloseADeployRequestRequestBodyStateEnum string
+// CloseADeployRequestRequestBodyState - The deploy request will be updated to this state
+type CloseADeployRequestRequestBodyState string
 
 const (
-	CloseADeployRequestRequestBodyStateEnumClosed CloseADeployRequestRequestBodyStateEnum = "closed"
+	CloseADeployRequestRequestBodyStateClosed CloseADeployRequestRequestBodyState = "closed"
 )
 
-func (e CloseADeployRequestRequestBodyStateEnum) ToPointer() *CloseADeployRequestRequestBodyStateEnum {
+func (e CloseADeployRequestRequestBodyState) ToPointer() *CloseADeployRequestRequestBodyState {
 	return &e
 }
 
-func (e *CloseADeployRequestRequestBodyStateEnum) UnmarshalJSON(data []byte) error {
+func (e *CloseADeployRequestRequestBodyState) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "closed":
-		*e = CloseADeployRequestRequestBodyStateEnum(v)
+		*e = CloseADeployRequestRequestBodyState(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CloseADeployRequestRequestBodyStateEnum: %v", v)
+		return fmt.Errorf("invalid value for CloseADeployRequestRequestBodyState: %v", v)
 	}
 }
 
 type CloseADeployRequestRequestBody struct {
 	// The deploy request will be updated to this state
-	State *CloseADeployRequestRequestBodyStateEnum `json:"state,omitempty"`
+	State *CloseADeployRequestRequestBodyState `json:"state,omitempty"`
 }
 
 type CloseADeployRequestRequest struct {

@@ -107,7 +107,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.DeployRequests.Close(ctx, "delectus", "eum", "non", &operations.CloseADeployRequestRequestBody{
-        State: operations.CloseADeployRequestRequestBodyStateEnumClosed.ToPointer(),
+        State: operations.CloseADeployRequestRequestBodyStateClosed.ToPointer(),
     })
     if err != nil {
         log.Fatal(err)

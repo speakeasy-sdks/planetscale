@@ -8,21 +8,21 @@ import (
 	"net/http"
 )
 
-// CreateABranchPasswordRequestBodyRoleEnum - The database role of the password (i.e. admin)
-type CreateABranchPasswordRequestBodyRoleEnum string
+// CreateABranchPasswordRequestBodyRole - The database role of the password (i.e. admin)
+type CreateABranchPasswordRequestBodyRole string
 
 const (
-	CreateABranchPasswordRequestBodyRoleEnumReader     CreateABranchPasswordRequestBodyRoleEnum = "reader"
-	CreateABranchPasswordRequestBodyRoleEnumWriter     CreateABranchPasswordRequestBodyRoleEnum = "writer"
-	CreateABranchPasswordRequestBodyRoleEnumAdmin      CreateABranchPasswordRequestBodyRoleEnum = "admin"
-	CreateABranchPasswordRequestBodyRoleEnumReadwriter CreateABranchPasswordRequestBodyRoleEnum = "readwriter"
+	CreateABranchPasswordRequestBodyRoleReader     CreateABranchPasswordRequestBodyRole = "reader"
+	CreateABranchPasswordRequestBodyRoleWriter     CreateABranchPasswordRequestBodyRole = "writer"
+	CreateABranchPasswordRequestBodyRoleAdmin      CreateABranchPasswordRequestBodyRole = "admin"
+	CreateABranchPasswordRequestBodyRoleReadwriter CreateABranchPasswordRequestBodyRole = "readwriter"
 )
 
-func (e CreateABranchPasswordRequestBodyRoleEnum) ToPointer() *CreateABranchPasswordRequestBodyRoleEnum {
+func (e CreateABranchPasswordRequestBodyRole) ToPointer() *CreateABranchPasswordRequestBodyRole {
 	return &e
 }
 
-func (e *CreateABranchPasswordRequestBodyRoleEnum) UnmarshalJSON(data []byte) error {
+func (e *CreateABranchPasswordRequestBodyRole) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -35,10 +35,10 @@ func (e *CreateABranchPasswordRequestBodyRoleEnum) UnmarshalJSON(data []byte) er
 	case "admin":
 		fallthrough
 	case "readwriter":
-		*e = CreateABranchPasswordRequestBodyRoleEnum(v)
+		*e = CreateABranchPasswordRequestBodyRole(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateABranchPasswordRequestBodyRoleEnum: %v", v)
+		return fmt.Errorf("invalid value for CreateABranchPasswordRequestBodyRole: %v", v)
 	}
 }
 
@@ -46,7 +46,7 @@ type CreateABranchPasswordRequestBody struct {
 	// A read-only region of the database branch
 	ReadOnlyRegionID *string `json:"read_only_region_id,omitempty"`
 	// The database role of the password (i.e. admin)
-	Role *CreateABranchPasswordRequestBodyRoleEnum `json:"role,omitempty"`
+	Role *CreateABranchPasswordRequestBodyRole `json:"role,omitempty"`
 	// Time to live (in seconds) for the password. The password will be invalid when TTL has passed
 	TTL *float64 `json:"ttl,omitempty"`
 }

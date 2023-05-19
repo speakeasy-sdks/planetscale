@@ -8,19 +8,19 @@ import (
 	"net/http"
 )
 
-// CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum - Whether an OAuth grant code or a refresh token is being exchanged for an OAuth token
-type CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum string
+// CreateOrRenewAnOauthTokenRequestBodyGrantType - Whether an OAuth grant code or a refresh token is being exchanged for an OAuth token
+type CreateOrRenewAnOauthTokenRequestBodyGrantType string
 
 const (
-	CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnumAuthorizationCode CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum = "authorization_code"
-	CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnumRefreshToken      CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum = "refresh_token"
+	CreateOrRenewAnOauthTokenRequestBodyGrantTypeAuthorizationCode CreateOrRenewAnOauthTokenRequestBodyGrantType = "authorization_code"
+	CreateOrRenewAnOauthTokenRequestBodyGrantTypeRefreshToken      CreateOrRenewAnOauthTokenRequestBodyGrantType = "refresh_token"
 )
 
-func (e CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum) ToPointer() *CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum {
+func (e CreateOrRenewAnOauthTokenRequestBodyGrantType) ToPointer() *CreateOrRenewAnOauthTokenRequestBodyGrantType {
 	return &e
 }
 
-func (e *CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum) UnmarshalJSON(data []byte) error {
+func (e *CreateOrRenewAnOauthTokenRequestBodyGrantType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -29,10 +29,10 @@ func (e *CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum) UnmarshalJSON(data [
 	case "authorization_code":
 		fallthrough
 	case "refresh_token":
-		*e = CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum(v)
+		*e = CreateOrRenewAnOauthTokenRequestBodyGrantType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum: %v", v)
+		return fmt.Errorf("invalid value for CreateOrRenewAnOauthTokenRequestBodyGrantType: %v", v)
 	}
 }
 
@@ -44,7 +44,7 @@ type CreateOrRenewAnOauthTokenRequestBody struct {
 	// The OAuth grant code provided to your OAuth application's redirect URI. Required when grant_type is authorization_code
 	Code *string `json:"code,omitempty"`
 	// Whether an OAuth grant code or a refresh token is being exchanged for an OAuth token
-	GrantType CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnum `json:"grant_type"`
+	GrantType CreateOrRenewAnOauthTokenRequestBodyGrantType `json:"grant_type"`
 	// The OAuth application's redirect URI. Required when grant_type is authorization_code
 	RedirectURI *string `json:"redirect_uri,omitempty"`
 	// The refresh token from the original OAuth token grant. Required when grant_type is refresh_token

@@ -47,7 +47,7 @@ func main() {
         ClientID: "et",
         ClientSecret: "excepturi",
         Code: planetscale.String("ullam"),
-        GrantType: operations.CreateOrRenewAnOauthTokenRequestBodyGrantTypeEnumRefreshToken,
+        GrantType: operations.CreateOrRenewAnOauthTokenRequestBodyGrantTypeRefreshToken,
         RedirectURI: planetscale.String("quos"),
         RefreshToken: planetscale.String("sint"),
     })
