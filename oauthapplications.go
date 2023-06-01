@@ -3,10 +3,12 @@
 package planetscale
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/planetscale/pkg/models/operations"
 	"github.com/speakeasy-sdks/planetscale/pkg/utils"
+	"io"
 	"net/http"
 )
 
@@ -69,7 +71,13 @@ func (s *oAuthApplications) Delete(ctx context.Context, applicationID string, or
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -127,7 +135,13 @@ func (s *oAuthApplications) Get(ctx context.Context, applicationID string, organ
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -141,7 +155,7 @@ func (s *oAuthApplications) Get(ctx context.Context, applicationID string, organ
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -194,7 +208,13 @@ func (s *oAuthApplications) GetToken(ctx context.Context, applicationID string, 
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -208,7 +228,7 @@ func (s *oAuthApplications) GetToken(ctx context.Context, applicationID string, 
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -265,7 +285,13 @@ func (s *oAuthApplications) List(ctx context.Context, organization string, page 
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -279,7 +305,7 @@ func (s *oAuthApplications) List(ctx context.Context, organization string, page 
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -339,7 +365,13 @@ func (s *oAuthApplications) ListTokens(ctx context.Context, applicationID string
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -353,7 +385,7 @@ func (s *oAuthApplications) ListTokens(ctx context.Context, applicationID string
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 

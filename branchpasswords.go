@@ -3,10 +3,12 @@
 package planetscale
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/planetscale/pkg/models/operations"
 	"github.com/speakeasy-sdks/planetscale/pkg/utils"
+	"io"
 	"net/http"
 )
 
@@ -86,7 +88,13 @@ func (s *branchPasswords) Create(ctx context.Context, branch string, database st
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -100,7 +108,7 @@ func (s *branchPasswords) Create(ctx context.Context, branch string, database st
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -163,7 +171,13 @@ func (s *branchPasswords) Delete(ctx context.Context, branch string, database st
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -229,7 +243,13 @@ func (s *branchPasswords) Get(ctx context.Context, request operations.GetABranch
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -243,7 +263,7 @@ func (s *branchPasswords) Get(ctx context.Context, request operations.GetABranch
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -303,7 +323,13 @@ func (s *branchPasswords) List(ctx context.Context, request operations.ListBranc
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -317,7 +343,7 @@ func (s *branchPasswords) List(ctx context.Context, request operations.ListBranc
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -380,7 +406,13 @@ func (s *branchPasswords) Renew(ctx context.Context, request operations.RenewABr
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -394,7 +426,7 @@ func (s *branchPasswords) Renew(ctx context.Context, request operations.RenewABr
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -457,7 +489,13 @@ func (s *branchPasswords) Update(ctx context.Context, request operations.UpdateA
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -471,7 +509,7 @@ func (s *branchPasswords) Update(ctx context.Context, request operations.UpdateA
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 

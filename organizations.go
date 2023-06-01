@@ -3,10 +3,12 @@
 package planetscale
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/planetscale/pkg/models/operations"
 	"github.com/speakeasy-sdks/planetscale/pkg/utils"
+	"io"
 	"net/http"
 	"strings"
 )
@@ -72,7 +74,13 @@ func (s *organizations) Get(ctx context.Context, name string) (*operations.GetAn
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -86,7 +94,7 @@ func (s *organizations) Get(ctx context.Context, name string) (*operations.GetAn
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -142,7 +150,13 @@ func (s *organizations) List(ctx context.Context, page *float64, perPage *float6
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -156,7 +170,7 @@ func (s *organizations) List(ctx context.Context, page *float64, perPage *float6
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -217,7 +231,13 @@ func (s *organizations) ListRegions(ctx context.Context, name string, page *floa
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -231,7 +251,7 @@ func (s *organizations) ListRegions(ctx context.Context, name string, page *floa
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -293,7 +313,13 @@ func (s *organizations) Update(ctx context.Context, name string, requestBody *op
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -307,7 +333,7 @@ func (s *organizations) Update(ctx context.Context, name string, requestBody *op
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out map[string]map[string]interface{}
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
