@@ -41,7 +41,7 @@ import(
 func main() {
     s := planetscale.New(
         planetscale.WithSecurity(shared.Security{
-            APIKeyHeader: "YOUR_API_KEY_HERE",
+            APIKeyHeader: "",
         }),
     )
 
@@ -84,7 +84,7 @@ import(
 func main() {
     s := planetscale.New(
         planetscale.WithSecurity(shared.Security{
-            APIKeyHeader: "YOUR_API_KEY_HERE",
+            APIKeyHeader: "",
         }),
     )
 
@@ -128,7 +128,7 @@ import(
 func main() {
     s := planetscale.New(
         planetscale.WithSecurity(shared.Security{
-            APIKeyHeader: "YOUR_API_KEY_HERE",
+            APIKeyHeader: "",
         }),
     )
 
@@ -171,7 +171,7 @@ import(
 func main() {
     s := planetscale.New(
         planetscale.WithSecurity(shared.Security{
-            APIKeyHeader: "YOUR_API_KEY_HERE",
+            APIKeyHeader: "",
         }),
     )
 

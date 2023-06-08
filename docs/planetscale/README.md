@@ -2,7 +2,7 @@
 
 ## Overview
 
-<p>Another API description</p>
+PlanetScale API: <p>Another API description</p>
 &copy; 2023 PlanetScale, Inc.
 
 ### Available Operations

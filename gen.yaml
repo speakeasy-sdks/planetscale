@@ -2,13 +2,13 @@ configVersion: 1.0.0
 management:
   docChecksum: 582a8999b328143a92a2e5f29ff69d86
   docVersion: v1
-  speakeasyVersion: 1.40.2
-  generationVersion: 2.34.2
+  speakeasyVersion: 1.45.0
+  generationVersion: 2.37.0
 generation:
   sdkClassName: planetscale
   singleTagPerOp: false
   telemetryEnabled: false
 go:
-  version: 1.7.0
+  version: 1.8.0
   maxMethodParams: 4
   packageName: github.com/speakeasy-sdks/planetscale
