@@ -15,10 +15,13 @@ type ListDatabasesRequest struct {
 	PerPage *float64 `queryParam:"style=form,explode=true,name=per_page"`
 }
 
+type ListDatabases200ApplicationJSON struct {
+}
+
 type ListDatabasesResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Retrieves the databases for an organization
-	ListDatabases200ApplicationJSONObject map[string]map[string]interface{}
+	ListDatabases200ApplicationJSONObject map[string]ListDatabases200ApplicationJSON
 }

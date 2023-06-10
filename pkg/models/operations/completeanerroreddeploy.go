@@ -15,10 +15,13 @@ type CompleteAnErroredDeployRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type CompleteAnErroredDeploy200ApplicationJSON struct {
+}
+
 type CompleteAnErroredDeployResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the completed deploy request
-	CompleteAnErroredDeploy200ApplicationJSONObject map[string]map[string]interface{}
+	CompleteAnErroredDeploy200ApplicationJSONObject map[string]CompleteAnErroredDeploy200ApplicationJSON
 }

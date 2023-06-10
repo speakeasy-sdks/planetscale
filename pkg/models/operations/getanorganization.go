@@ -11,10 +11,13 @@ type GetAnOrganizationRequest struct {
 	Name string `pathParam:"style=simple,explode=false,name=name"`
 }
 
+type GetAnOrganization200ApplicationJSON struct {
+}
+
 type GetAnOrganizationResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns an organization
-	GetAnOrganization200ApplicationJSONObject map[string]map[string]interface{}
+	GetAnOrganization200ApplicationJSONObject map[string]GetAnOrganization200ApplicationJSON
 }

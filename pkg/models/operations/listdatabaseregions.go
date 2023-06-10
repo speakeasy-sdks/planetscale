@@ -17,10 +17,13 @@ type ListDatabaseRegionsRequest struct {
 	PerPage *float64 `queryParam:"style=form,explode=true,name=per_page"`
 }
 
+type ListDatabaseRegions200ApplicationJSON struct {
+}
+
 type ListDatabaseRegionsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the available regions for a database
-	ListDatabaseRegions200ApplicationJSONObject map[string]map[string]interface{}
+	ListDatabaseRegions200ApplicationJSONObject map[string]ListDatabaseRegions200ApplicationJSON
 }

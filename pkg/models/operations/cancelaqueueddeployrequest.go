@@ -15,10 +15,13 @@ type CancelAQueuedDeployRequestRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type CancelAQueuedDeployRequest200ApplicationJSON struct {
+}
+
 type CancelAQueuedDeployRequestResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the deploy request whose deployment was canceled
-	CancelAQueuedDeployRequest200ApplicationJSONObject map[string]map[string]interface{}
+	CancelAQueuedDeployRequest200ApplicationJSONObject map[string]CancelAQueuedDeployRequest200ApplicationJSON
 }

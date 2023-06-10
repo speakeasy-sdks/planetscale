@@ -97,7 +97,7 @@ func (s *branchPasswords) Create(ctx context.Context, branch string, database st
 	case httpRes.StatusCode == 201:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.CreateABranchPassword201ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -252,7 +252,7 @@ func (s *branchPasswords) Get(ctx context.Context, request operations.GetABranch
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.GetABranchPassword200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -332,7 +332,7 @@ func (s *branchPasswords) List(ctx context.Context, request operations.ListBranc
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.ListBranchPasswords200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -415,7 +415,7 @@ func (s *branchPasswords) Renew(ctx context.Context, request operations.RenewABr
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.RenewABranchPassword200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -498,7 +498,7 @@ func (s *branchPasswords) Update(ctx context.Context, request operations.UpdateA
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.UpdateABranchPassword200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}

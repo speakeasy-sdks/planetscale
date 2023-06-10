@@ -83,7 +83,7 @@ func (s *organizations) Get(ctx context.Context, name string) (*operations.GetAn
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.GetAnOrganization200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -159,7 +159,7 @@ func (s *organizations) List(ctx context.Context, page *float64, perPage *float6
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.ListOrganizations200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -240,7 +240,7 @@ func (s *organizations) ListRegions(ctx context.Context, name string, page *floa
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.ListRegionsForAnOrganization200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -322,7 +322,7 @@ func (s *organizations) Update(ctx context.Context, name string, requestBody *op
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.UpdateAnOrganization200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}

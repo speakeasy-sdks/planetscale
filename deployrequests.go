@@ -88,7 +88,7 @@ func (s *deployRequests) Cancel(ctx context.Context, database string, number str
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.CancelAQueuedDeployRequest200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -172,7 +172,7 @@ func (s *deployRequests) Close(ctx context.Context, database string, number stri
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.CloseADeployRequest200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -248,7 +248,7 @@ func (s *deployRequests) CompleteErroredDeploy(ctx context.Context, database str
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.CompleteAnErroredDeploy200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -324,7 +324,7 @@ func (s *deployRequests) CompleteGatedDeploy(ctx context.Context, database strin
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.CompleteAGatedDeployRequest200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -400,7 +400,7 @@ func (s *deployRequests) CompleteRevert(ctx context.Context, database string, nu
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.CompleteARevert200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -483,7 +483,7 @@ func (s *deployRequests) Create(ctx context.Context, database string, organizati
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.CreateADeployRequest200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -559,7 +559,7 @@ func (s *deployRequests) Get(ctx context.Context, database string, number string
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.GetADeployRequest200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -637,7 +637,7 @@ func (s *deployRequests) GetDeployment(ctx context.Context, database string, num
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.GetADeployment200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -699,7 +699,7 @@ func (s *deployRequests) GetQueue(ctx context.Context, database string, organiza
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.GetADeployQueue200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -782,7 +782,7 @@ func (s *deployRequests) List(ctx context.Context, database string, organization
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.ListDeployRequests200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -858,7 +858,7 @@ func (s *deployRequests) ListOperations(ctx context.Context, request operations.
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.ListDeployOperations200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -934,7 +934,7 @@ func (s *deployRequests) Queue(ctx context.Context, database string, number stri
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.QueueADeployRequest200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -1012,7 +1012,7 @@ func (s *deployRequests) SkipRevertPeriod(ctx context.Context, database string, 
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.SkipRevertPeriod200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
@@ -1090,7 +1090,7 @@ func (s *deployRequests) Update(ctx context.Context, database string, number str
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.UpdateAutoApplyForDeployRequest200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}

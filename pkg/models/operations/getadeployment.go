@@ -15,10 +15,13 @@ type GetADeploymentRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type GetADeployment200ApplicationJSON struct {
+}
+
 type GetADeploymentResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the deployment for a deploy request
-	GetADeployment200ApplicationJSONObject map[string]map[string]interface{}
+	GetADeployment200ApplicationJSONObject map[string]GetADeployment200ApplicationJSON
 }

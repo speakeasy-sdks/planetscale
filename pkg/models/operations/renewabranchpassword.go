@@ -23,10 +23,13 @@ type RenewABranchPasswordRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type RenewABranchPassword200ApplicationJSON struct {
+}
+
 type RenewABranchPasswordResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Updates a database branch password
-	RenewABranchPassword200ApplicationJSONObject map[string]map[string]interface{}
+	RenewABranchPassword200ApplicationJSONObject map[string]RenewABranchPassword200ApplicationJSON
 }

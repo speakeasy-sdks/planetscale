@@ -17,10 +17,13 @@ type ListReadOnlyRegionsRequest struct {
 	PerPage *float64 `queryParam:"style=form,explode=true,name=per_page"`
 }
 
+type ListReadOnlyRegions200ApplicationJSON struct {
+}
+
 type ListReadOnlyRegionsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// List of the database's read-only regions
-	ListReadOnlyRegions200ApplicationJSONObject map[string]map[string]interface{}
+	ListReadOnlyRegions200ApplicationJSONObject map[string]ListReadOnlyRegions200ApplicationJSON
 }

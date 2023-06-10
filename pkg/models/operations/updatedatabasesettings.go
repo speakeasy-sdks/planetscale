@@ -37,10 +37,13 @@ type UpdateDatabaseSettingsRequest struct {
 	RequestBody  *UpdateDatabaseSettingsRequestBody `request:"mediaType=application/json"`
 }
 
+type UpdateDatabaseSettings200ApplicationJSON struct {
+}
+
 type UpdateDatabaseSettingsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the updated database
-	UpdateDatabaseSettings200ApplicationJSONObject map[string]map[string]interface{}
+	UpdateDatabaseSettings200ApplicationJSONObject map[string]UpdateDatabaseSettings200ApplicationJSON
 }

@@ -59,10 +59,13 @@ type CreateOrRenewAnOauthTokenRequest struct {
 	RequestBody  *CreateOrRenewAnOauthTokenRequestBody `request:"mediaType=application/json"`
 }
 
+type CreateOrRenewAnOauthToken200ApplicationJSON struct {
+}
+
 type CreateOrRenewAnOauthTokenResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the created OAuth token
-	CreateOrRenewAnOauthToken200ApplicationJSONObject map[string]map[string]interface{}
+	CreateOrRenewAnOauthToken200ApplicationJSONObject map[string]CreateOrRenewAnOauthToken200ApplicationJSON
 }

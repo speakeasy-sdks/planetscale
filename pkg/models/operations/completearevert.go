@@ -15,10 +15,13 @@ type CompleteARevertRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type CompleteARevert200ApplicationJSON struct {
+}
+
 type CompleteARevertResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the deploy request that was reverted
-	CompleteARevert200ApplicationJSONObject map[string]map[string]interface{}
+	CompleteARevert200ApplicationJSONObject map[string]CompleteARevert200ApplicationJSON
 }

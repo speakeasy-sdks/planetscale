@@ -17,10 +17,13 @@ type ListOauthTokensRequest struct {
 	PerPage *float64 `queryParam:"style=form,explode=true,name=per_page"`
 }
 
+type ListOauthTokens200ApplicationJSON struct {
+}
+
 type ListOauthTokensResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns a list of OAuth tokens issued on behalf of the OAuth application
-	ListOauthTokens200ApplicationJSONObject map[string]map[string]interface{}
+	ListOauthTokens200ApplicationJSONObject map[string]ListOauthTokens200ApplicationJSON
 }

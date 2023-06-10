@@ -15,10 +15,13 @@ type GetADemotionRequestRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type GetADemotionRequest200ApplicationJSON struct {
+}
+
 type GetADemotionRequestResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the branch demotion request
-	GetADemotionRequest200ApplicationJSONObject map[string]map[string]interface{}
+	GetADemotionRequest200ApplicationJSONObject map[string]GetADemotionRequest200ApplicationJSON
 }

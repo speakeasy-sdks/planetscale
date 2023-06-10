@@ -67,7 +67,7 @@ func (s *users) Current(ctx context.Context) (*operations.GetCurrentUserResponse
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out map[string]map[string]interface{}
+			var out map[string]operations.GetCurrentUser200ApplicationJSON
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}

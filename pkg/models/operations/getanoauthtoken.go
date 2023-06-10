@@ -15,10 +15,13 @@ type GetAnOauthTokenRequest struct {
 	TokenID string `pathParam:"style=simple,explode=false,name=token_id"`
 }
 
+type GetAnOauthToken200ApplicationJSON struct {
+}
+
 type GetAnOauthTokenResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns an OAuth token that was issued on behalf of the OAuth application
-	GetAnOauthToken200ApplicationJSONObject map[string]map[string]interface{}
+	GetAnOauthToken200ApplicationJSONObject map[string]GetAnOauthToken200ApplicationJSON
 }

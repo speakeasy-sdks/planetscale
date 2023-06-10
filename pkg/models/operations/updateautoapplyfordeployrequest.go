@@ -15,10 +15,13 @@ type UpdateAutoApplyForDeployRequestRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type UpdateAutoApplyForDeployRequest200ApplicationJSON struct {
+}
+
 type UpdateAutoApplyForDeployRequestResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the deploy request whose auto-apply setting was updated
-	UpdateAutoApplyForDeployRequest200ApplicationJSONObject map[string]map[string]interface{}
+	UpdateAutoApplyForDeployRequest200ApplicationJSONObject map[string]UpdateAutoApplyForDeployRequest200ApplicationJSON
 }

@@ -12,10 +12,13 @@ type DemoteABranchRequest struct {
 	Organization float64 `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type DemoteABranch200ApplicationJSON struct {
+}
+
 type DemoteABranchResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Demotes a branch from production to development
-	DemoteABranch200ApplicationJSONObject map[string]map[string]interface{}
+	DemoteABranch200ApplicationJSONObject map[string]DemoteABranch200ApplicationJSON
 }

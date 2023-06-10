@@ -17,10 +17,13 @@ type ListDeployRequestsRequest struct {
 	PerPage *float64 `queryParam:"style=form,explode=true,name=per_page"`
 }
 
+type ListDeployRequests200ApplicationJSON struct {
+}
+
 type ListDeployRequestsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns a list of deploy requests for a database
-	ListDeployRequests200ApplicationJSONObject map[string]map[string]interface{}
+	ListDeployRequests200ApplicationJSONObject map[string]ListDeployRequests200ApplicationJSON
 }

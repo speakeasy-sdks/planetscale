@@ -15,10 +15,13 @@ type GetBranchStatusRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type GetBranchStatus200ApplicationJSON struct {
+}
+
 type GetBranchStatusResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the branch status
-	GetBranchStatus200ApplicationJSONObject map[string]map[string]interface{}
+	GetBranchStatus200ApplicationJSONObject map[string]GetBranchStatus200ApplicationJSON
 }

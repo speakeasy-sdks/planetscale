@@ -13,10 +13,13 @@ type GetADeployQueueRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type GetADeployQueue200ApplicationJSON struct {
+}
+
 type GetADeployQueueResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the deploy queue for a database
-	GetADeployQueue200ApplicationJSONObject map[string]map[string]interface{}
+	GetADeployQueue200ApplicationJSONObject map[string]GetADeployQueue200ApplicationJSON
 }

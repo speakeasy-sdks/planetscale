@@ -13,10 +13,13 @@ type GetAnOauthApplicationRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type GetAnOauthApplication200ApplicationJSON struct {
+}
+
 type GetAnOauthApplicationResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns information abuot an OAuth application
-	GetAnOauthApplication200ApplicationJSONObject map[string]map[string]interface{}
+	GetAnOauthApplication200ApplicationJSONObject map[string]GetAnOauthApplication200ApplicationJSON
 }

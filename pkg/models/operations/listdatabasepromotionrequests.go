@@ -17,10 +17,13 @@ type ListDatabasePromotionRequestsRequest struct {
 	PerPage *float64 `queryParam:"style=form,explode=true,name=per_page"`
 }
 
+type ListDatabasePromotionRequests200ApplicationJSON struct {
+}
+
 type ListDatabasePromotionRequestsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Promotion requests for the database
-	ListDatabasePromotionRequests200ApplicationJSONObject map[string]map[string]interface{}
+	ListDatabasePromotionRequests200ApplicationJSONObject map[string]ListDatabasePromotionRequests200ApplicationJSON
 }

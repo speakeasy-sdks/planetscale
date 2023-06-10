@@ -6,10 +6,13 @@ import (
 	"net/http"
 )
 
+type GetCurrentUser200ApplicationJSON struct {
+}
+
 type GetCurrentUserResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the current user that is associated with this service token
-	GetCurrentUser200ApplicationJSONObject map[string]map[string]interface{}
+	GetCurrentUser200ApplicationJSONObject map[string]GetCurrentUser200ApplicationJSON
 }

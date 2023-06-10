@@ -15,10 +15,13 @@ type SkipRevertPeriodRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type SkipRevertPeriod200ApplicationJSON struct {
+}
+
 type SkipRevertPeriodResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the deploy request whose deploy revert was skipped
-	SkipRevertPeriod200ApplicationJSONObject map[string]map[string]interface{}
+	SkipRevertPeriod200ApplicationJSONObject map[string]SkipRevertPeriod200ApplicationJSON
 }

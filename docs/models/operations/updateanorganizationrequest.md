@@ -1,0 +1,9 @@
+# UpdateAnOrganizationRequest
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `Name`                                                                                         | *string*                                                                                       | :heavy_check_mark:                                                                             | The name of the organization                                                                   |
+| `RequestBody`                                                                                  | [*UpdateAnOrganizationRequestBody](../../models/operations/updateanorganizationrequestbody.md) | :heavy_minus_sign:                                                                             | N/A                                                                                            |

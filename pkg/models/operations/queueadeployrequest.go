@@ -15,10 +15,13 @@ type QueueADeployRequestRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type QueueADeployRequest200ApplicationJSON struct {
+}
+
 type QueueADeployRequestResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the deployed deploy request
-	QueueADeployRequest200ApplicationJSONObject map[string]map[string]interface{}
+	QueueADeployRequest200ApplicationJSONObject map[string]QueueADeployRequest200ApplicationJSON
 }

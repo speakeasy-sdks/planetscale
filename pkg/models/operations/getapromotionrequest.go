@@ -15,10 +15,13 @@ type GetAPromotionRequestRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type GetAPromotionRequest200ApplicationJSON struct {
+}
+
 type GetAPromotionRequestResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// The promotion request for a branch
-	GetAPromotionRequest200ApplicationJSONObject map[string]map[string]interface{}
+	GetAPromotionRequest200ApplicationJSONObject map[string]GetAPromotionRequest200ApplicationJSON
 }

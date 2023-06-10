@@ -48,10 +48,13 @@ type CloseADeployRequestRequest struct {
 	RequestBody  *CloseADeployRequestRequestBody `request:"mediaType=application/json"`
 }
 
+type CloseADeployRequest200ApplicationJSON struct {
+}
+
 type CloseADeployRequestResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the updated deploy request
-	CloseADeployRequest200ApplicationJSONObject map[string]map[string]interface{}
+	CloseADeployRequest200ApplicationJSONObject map[string]CloseADeployRequest200ApplicationJSON
 }

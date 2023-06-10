@@ -15,10 +15,13 @@ type ListOauthApplicationsRequest struct {
 	PerPage *float64 `queryParam:"style=form,explode=true,name=per_page"`
 }
 
+type ListOauthApplications200ApplicationJSON struct {
+}
+
 type ListOauthApplicationsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns a list of the organization's oauth applications
-	ListOauthApplications200ApplicationJSONObject map[string]map[string]interface{}
+	ListOauthApplications200ApplicationJSONObject map[string]ListOauthApplications200ApplicationJSON
 }

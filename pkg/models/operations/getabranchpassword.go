@@ -19,10 +19,13 @@ type GetABranchPasswordRequest struct {
 	ReadOnlyRegionID *string `queryParam:"style=form,explode=true,name=read_only_region_id"`
 }
 
+type GetABranchPassword200ApplicationJSON struct {
+}
+
 type GetABranchPasswordResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Gets the database branch password
-	GetABranchPassword200ApplicationJSONObject map[string]map[string]interface{}
+	GetABranchPassword200ApplicationJSONObject map[string]GetABranchPassword200ApplicationJSON
 }

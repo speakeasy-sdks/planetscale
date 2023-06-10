@@ -23,10 +23,13 @@ type CreateABranchRequest struct {
 	RequestBody  *CreateABranchRequestBody `request:"mediaType=application/json"`
 }
 
+type CreateABranch201ApplicationJSON struct {
+}
+
 type CreateABranchResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the created branch
-	CreateABranch201ApplicationJSONObject map[string]map[string]interface{}
+	CreateABranch201ApplicationJSONObject map[string]CreateABranch201ApplicationJSON
 }

@@ -54,79 +54,79 @@ func main() {
 ## Available Resources and Operations
 
 
-### [BranchPasswords](docs/branchpasswords/README.md)
+### [BranchPasswords](docs/sdks/branchpasswords/README.md)
 
-* [Create](docs/branchpasswords/README.md#create) - Create a branch password
-* [Delete](docs/branchpasswords/README.md#delete) - Delete a branch password
-* [Get](docs/branchpasswords/README.md#get) - Get a branch password
-* [List](docs/branchpasswords/README.md#list) - List branch passwords
-* [Renew](docs/branchpasswords/README.md#renew) - Renew a branch password
-* [Update](docs/branchpasswords/README.md#update) - Update a branch password
+* [Create](docs/sdks/branchpasswords/README.md#create) - Create a branch password
+* [Delete](docs/sdks/branchpasswords/README.md#delete) - Delete a branch password
+* [Get](docs/sdks/branchpasswords/README.md#get) - Get a branch password
+* [List](docs/sdks/branchpasswords/README.md#list) - List branch passwords
+* [Renew](docs/sdks/branchpasswords/README.md#renew) - Renew a branch password
+* [Update](docs/sdks/branchpasswords/README.md#update) - Update a branch password
 
-### [Branches](docs/branches/README.md)
+### [Branches](docs/sdks/branches/README.md)
 
-* [CancelDemotionRequest](docs/branches/README.md#canceldemotionrequest) - Cancel or deny a demotion request
-* [Create](docs/branches/README.md#create) - Create a branch
-* [CreatePromotionRequest](docs/branches/README.md#createpromotionrequest) - Create a promotion request
-* [Delete](docs/branches/README.md#delete) - Delete a branch
-* [Demote](docs/branches/README.md#demote) - Demote a branch
-* [Get](docs/branches/README.md#get) - Get a branch
-* [GetDemotionRequest](docs/branches/README.md#getdemotionrequest) - Get a demotion request
-* [GetPromotionRequest](docs/branches/README.md#getpromotionrequest) - Get a promotion request
-* [GetSchema](docs/branches/README.md#getschema) - Get a branch schema
-* [GetStatus](docs/branches/README.md#getstatus) - Get branch status
-* [List](docs/branches/README.md#list) - List branches
+* [CancelDemotionRequest](docs/sdks/branches/README.md#canceldemotionrequest) - Cancel or deny a demotion request
+* [Create](docs/sdks/branches/README.md#create) - Create a branch
+* [CreatePromotionRequest](docs/sdks/branches/README.md#createpromotionrequest) - Create a promotion request
+* [Delete](docs/sdks/branches/README.md#delete) - Delete a branch
+* [Demote](docs/sdks/branches/README.md#demote) - Demote a branch
+* [Get](docs/sdks/branches/README.md#get) - Get a branch
+* [GetDemotionRequest](docs/sdks/branches/README.md#getdemotionrequest) - Get a demotion request
+* [GetPromotionRequest](docs/sdks/branches/README.md#getpromotionrequest) - Get a promotion request
+* [GetSchema](docs/sdks/branches/README.md#getschema) - Get a branch schema
+* [GetStatus](docs/sdks/branches/README.md#getstatus) - Get branch status
+* [List](docs/sdks/branches/README.md#list) - List branches
 
-### [Databases](docs/databases/README.md)
+### [Databases](docs/sdks/databases/README.md)
 
-* [Create](docs/databases/README.md#create) - Create a database
-* [Delete](docs/databases/README.md#delete) - Delete a database
-* [Get](docs/databases/README.md#get) - Get a database
-* [List](docs/databases/README.md#list) - List databases
-* [ListPromotionRequests](docs/databases/README.md#listpromotionrequests) - List database promotion requests
-* [ListReadOnlyRegions](docs/databases/README.md#listreadonlyregions) - List read-only regions
-* [ListRegions](docs/databases/README.md#listregions) - List database regions
-* [Update](docs/databases/README.md#update) - Update database settings
+* [Create](docs/sdks/databases/README.md#create) - Create a database
+* [Delete](docs/sdks/databases/README.md#delete) - Delete a database
+* [Get](docs/sdks/databases/README.md#get) - Get a database
+* [List](docs/sdks/databases/README.md#list) - List databases
+* [ListPromotionRequests](docs/sdks/databases/README.md#listpromotionrequests) - List database promotion requests
+* [ListReadOnlyRegions](docs/sdks/databases/README.md#listreadonlyregions) - List read-only regions
+* [ListRegions](docs/sdks/databases/README.md#listregions) - List database regions
+* [Update](docs/sdks/databases/README.md#update) - Update database settings
 
-### [DeployRequests](docs/deployrequests/README.md)
+### [DeployRequests](docs/sdks/deployrequests/README.md)
 
-* [Cancel](docs/deployrequests/README.md#cancel) - Cancel a queued deploy request
-* [Close](docs/deployrequests/README.md#close) - Close a deploy request
-* [CompleteErroredDeploy](docs/deployrequests/README.md#completeerroreddeploy) - Complete an errored deploy
-* [CompleteGatedDeploy](docs/deployrequests/README.md#completegateddeploy) - Complete a gated deploy request
-* [CompleteRevert](docs/deployrequests/README.md#completerevert) - Complete a revert
-* [Create](docs/deployrequests/README.md#create) - Create a deploy request
-* [Get](docs/deployrequests/README.md#get) - Get a deploy request
-* [GetDeployment](docs/deployrequests/README.md#getdeployment) - Get a deployment
-* [GetQueue](docs/deployrequests/README.md#getqueue) - Get a deploy queue
-* [List](docs/deployrequests/README.md#list) - List deploy requests
-* [ListOperations](docs/deployrequests/README.md#listoperations) - List deploy operations
-* [Queue](docs/deployrequests/README.md#queue) - Queue a deploy request
-* [SkipRevertPeriod](docs/deployrequests/README.md#skiprevertperiod) - Skip revert period
-* [Update](docs/deployrequests/README.md#update) - Update auto-apply for deploy request
+* [Cancel](docs/sdks/deployrequests/README.md#cancel) - Cancel a queued deploy request
+* [Close](docs/sdks/deployrequests/README.md#close) - Close a deploy request
+* [CompleteErroredDeploy](docs/sdks/deployrequests/README.md#completeerroreddeploy) - Complete an errored deploy
+* [CompleteGatedDeploy](docs/sdks/deployrequests/README.md#completegateddeploy) - Complete a gated deploy request
+* [CompleteRevert](docs/sdks/deployrequests/README.md#completerevert) - Complete a revert
+* [Create](docs/sdks/deployrequests/README.md#create) - Create a deploy request
+* [Get](docs/sdks/deployrequests/README.md#get) - Get a deploy request
+* [GetDeployment](docs/sdks/deployrequests/README.md#getdeployment) - Get a deployment
+* [GetQueue](docs/sdks/deployrequests/README.md#getqueue) - Get a deploy queue
+* [List](docs/sdks/deployrequests/README.md#list) - List deploy requests
+* [ListOperations](docs/sdks/deployrequests/README.md#listoperations) - List deploy operations
+* [Queue](docs/sdks/deployrequests/README.md#queue) - Queue a deploy request
+* [SkipRevertPeriod](docs/sdks/deployrequests/README.md#skiprevertperiod) - Skip revert period
+* [Update](docs/sdks/deployrequests/README.md#update) - Update auto-apply for deploy request
 
-### [OAuthApplications](docs/oauthapplications/README.md)
+### [OAuthApplications](docs/sdks/oauthapplications/README.md)
 
-* [Delete](docs/oauthapplications/README.md#delete) - Delete an OAuth token
-* [Get](docs/oauthapplications/README.md#get) - Get an OAuth application
-* [GetToken](docs/oauthapplications/README.md#gettoken) - Get an OAuth token
-* [List](docs/oauthapplications/README.md#list) - List OAuth applications
-* [ListTokens](docs/oauthapplications/README.md#listtokens) - List OAuth tokens
+* [Delete](docs/sdks/oauthapplications/README.md#delete) - Delete an OAuth token
+* [Get](docs/sdks/oauthapplications/README.md#get) - Get an OAuth application
+* [GetToken](docs/sdks/oauthapplications/README.md#gettoken) - Get an OAuth token
+* [List](docs/sdks/oauthapplications/README.md#list) - List OAuth applications
+* [ListTokens](docs/sdks/oauthapplications/README.md#listtokens) - List OAuth tokens
 
-### [OAuthTokens](docs/oauthtokens/README.md)
+### [OAuthTokens](docs/sdks/oauthtokens/README.md)
 
-* [Create](docs/oauthtokens/README.md#create) - Create or renew an OAuth token
+* [Create](docs/sdks/oauthtokens/README.md#create) - Create or renew an OAuth token
 
-### [Organizations](docs/organizations/README.md)
+### [Organizations](docs/sdks/organizations/README.md)
 
-* [Get](docs/organizations/README.md#get) - Get an organization
-* [List](docs/organizations/README.md#list) - List organizations
-* [ListRegions](docs/organizations/README.md#listregions) - List regions for an organization
-* [Update](docs/organizations/README.md#update) - Update an organization
+* [Get](docs/sdks/organizations/README.md#get) - Get an organization
+* [List](docs/sdks/organizations/README.md#list) - List organizations
+* [ListRegions](docs/sdks/organizations/README.md#listregions) - List regions for an organization
+* [Update](docs/sdks/organizations/README.md#update) - Update an organization
 
-### [Users](docs/users/README.md)
+### [Users](docs/sdks/users/README.md)
 
-* [Current](docs/users/README.md#current) - Get current user
+* [Current](docs/sdks/users/README.md#current) - Get current user
 <!-- End SDK Available Operations -->
 
 ### Maturity

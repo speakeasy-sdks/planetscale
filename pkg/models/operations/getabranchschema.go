@@ -17,10 +17,13 @@ type GetABranchSchemaRequest struct {
 	Keyspace *string `queryParam:"style=form,explode=true,name=keyspace"`
 }
 
+type GetABranchSchema200ApplicationJSON struct {
+}
+
 type GetABranchSchemaResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Gets the schema for the branch
-	GetABranchSchema200ApplicationJSONObject map[string]map[string]interface{}
+	GetABranchSchema200ApplicationJSONObject map[string]GetABranchSchema200ApplicationJSON
 }

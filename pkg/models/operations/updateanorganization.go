@@ -19,10 +19,13 @@ type UpdateAnOrganizationRequest struct {
 	RequestBody *UpdateAnOrganizationRequestBody `request:"mediaType=application/json"`
 }
 
+type UpdateAnOrganization200ApplicationJSON struct {
+}
+
 type UpdateAnOrganizationResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the updated organization
-	UpdateAnOrganization200ApplicationJSONObject map[string]map[string]interface{}
+	UpdateAnOrganization200ApplicationJSONObject map[string]UpdateAnOrganization200ApplicationJSON
 }

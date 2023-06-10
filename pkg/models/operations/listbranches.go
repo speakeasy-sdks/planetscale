@@ -17,10 +17,13 @@ type ListBranchesRequest struct {
 	PerPage *float64 `queryParam:"style=form,explode=true,name=per_page"`
 }
 
+type ListBranches200ApplicationJSON struct {
+}
+
 type ListBranchesResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns Branches
-	ListBranches200ApplicationJSONObject map[string]map[string]interface{}
+	ListBranches200ApplicationJSONObject map[string]ListBranches200ApplicationJSON
 }

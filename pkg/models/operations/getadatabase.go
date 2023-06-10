@@ -13,10 +13,13 @@ type GetADatabaseRequest struct {
 	Organization string `pathParam:"style=simple,explode=false,name=organization"`
 }
 
+type GetADatabase200ApplicationJSON struct {
+}
+
 type GetADatabaseResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns a database
-	GetADatabase200ApplicationJSONObject map[string]map[string]interface{}
+	GetADatabase200ApplicationJSONObject map[string]GetADatabase200ApplicationJSON
 }

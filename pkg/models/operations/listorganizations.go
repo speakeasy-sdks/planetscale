@@ -13,10 +13,13 @@ type ListOrganizationsRequest struct {
 	PerPage *float64 `queryParam:"style=form,explode=true,name=per_page"`
 }
 
+type ListOrganizations200ApplicationJSON struct {
+}
+
 type ListOrganizationsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Gets the organizations for the current user
-	ListOrganizations200ApplicationJSONObject map[string]map[string]interface{}
+	ListOrganizations200ApplicationJSONObject map[string]ListOrganizations200ApplicationJSON
 }

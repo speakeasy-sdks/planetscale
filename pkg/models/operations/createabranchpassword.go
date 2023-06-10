@@ -61,10 +61,13 @@ type CreateABranchPasswordRequest struct {
 	RequestBody  *CreateABranchPasswordRequestBody `request:"mediaType=application/json"`
 }
 
+type CreateABranchPassword201ApplicationJSON struct {
+}
+
 type CreateABranchPasswordResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Creates a database branch password
-	CreateABranchPassword201ApplicationJSONObject map[string]map[string]interface{}
+	CreateABranchPassword201ApplicationJSONObject map[string]CreateABranchPassword201ApplicationJSON
 }

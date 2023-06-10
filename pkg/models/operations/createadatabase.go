@@ -19,10 +19,13 @@ type CreateADatabaseRequest struct {
 	RequestBody  *CreateADatabaseRequestBody `request:"mediaType=application/json"`
 }
 
+type CreateADatabase201ApplicationJSON struct {
+}
+
 type CreateADatabaseResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the created database
-	CreateADatabase201ApplicationJSONObject map[string]map[string]interface{}
+	CreateADatabase201ApplicationJSONObject map[string]CreateADatabase201ApplicationJSON
 }

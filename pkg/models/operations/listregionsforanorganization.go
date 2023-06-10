@@ -15,10 +15,13 @@ type ListRegionsForAnOrganizationRequest struct {
 	PerPage *float64 `queryParam:"style=form,explode=true,name=per_page"`
 }
 
+type ListRegionsForAnOrganization200ApplicationJSON struct {
+}
+
 type ListRegionsForAnOrganizationResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the organization's regions
-	ListRegionsForAnOrganization200ApplicationJSONObject map[string]map[string]interface{}
+	ListRegionsForAnOrganization200ApplicationJSONObject map[string]ListRegionsForAnOrganization200ApplicationJSON
 }

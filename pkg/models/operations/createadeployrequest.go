@@ -25,10 +25,13 @@ type CreateADeployRequestRequest struct {
 	RequestBody  *CreateADeployRequestRequestBody `request:"mediaType=application/json"`
 }
 
+type CreateADeployRequest200ApplicationJSON struct {
+}
+
 type CreateADeployRequestResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Returns the created deploy request
-	CreateADeployRequest200ApplicationJSONObject map[string]map[string]interface{}
+	CreateADeployRequest200ApplicationJSONObject map[string]CreateADeployRequest200ApplicationJSON
 }
